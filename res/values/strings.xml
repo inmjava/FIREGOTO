@@ -15,7 +15,12 @@
     <string name="O">O</string>
     <string name="lat">Lat:</string>
     <string name="log">Log:</string>
-    
+    <string name="hora">Hora:</string>
+    <string name="doispontos">:</string>
+    <string name="Aspasduplas">\"</string>
+    <string name="Aspa">\'</string>
+    <string name="Grau">°</string>
+
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
@@ -26,12 +31,5 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
-        <string name="hora">Hora</string>
-        <string name="doispontos">:</string>
-        <string name="Aspasduplas">\"</string>
-        <string name="Aspa">\'</string>
-        <string name="Grau">°</string>
-
-
 
 </resources>

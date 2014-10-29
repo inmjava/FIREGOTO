@@ -11,19 +11,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <Switch
-            android:id="@+id/switchNS"
+        <TextView
+            android:id="@+id/textViewLat"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/log"
+            android:text="@string/lat"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+
+        <ToggleButton
+            android:id="@+id/toggleButtonLat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:textOff="@string/N"
-            android:textOn="@string/S"
-            android:textSize="@dimen/Grande"
-            android:textStyle="normal"
-            android:typeface="normal" />
+            android:textOn="@string/S" />
 
         <EditText
+            android:id="@+id/editTextGrauLat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -39,6 +45,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:id="@+id/editTextMinLat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -54,6 +61,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:id="@+id/editTextSegLat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -67,24 +75,39 @@
             android:layout_weight="1"
             android:text="@string/Aspasduplas"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <CheckBox
+            android:id="@+id/checkBoxLat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <Switch
-            android:id="@+id/switchLO"
+        <TextView
+            android:id="@+id/TextViewLog"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/lat"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/log"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+
+        <ToggleButton
+            android:id="@+id/ToggleButtonLog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:textOff="@string/L"
-            android:textOn="@string/O"
-            android:textSize="@dimen/Grande"
-            android:textStyle="normal"
-            android:typeface="normal" />
+            android:textOn="@string/O" />
 
         <EditText
+                        android:id="@+id/editTextGrauLog"
+            
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -100,6 +123,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:id="@+id/editTextMinLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -115,6 +139,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:id="@+id/editTextSegLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -128,6 +153,13 @@
             android:layout_weight="1"
             android:text="@string/Aspasduplas"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <CheckBox
+            android:id="@+id/CheckBox01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -140,9 +172,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="100"
             android:text="@string/hora"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
 
         <EditText
+            android:id="@+id/editTextHoraTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -158,6 +192,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:id="@+id/editTextMinTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -173,11 +208,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:id="@+id/editTextSegTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
             android:inputType="textPostalAddress" >
         </EditText>
+
+        <CheckBox
+            android:id="@+id/CheckBox02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
     </LinearLayout>
 
 </LinearLayout>
