@@ -8,5 +8,30 @@
     <string name="title_activity_configura_bluetooth">Configura Bluetooth</string>
     <string name="status">Status</string>
     <string name="title_activity_status">Status</string>
+    <string name="atualiza">Atualiza</string>
+    <string name="S">S</string>
+    <string name="N">N</string>
+    <string name="L">L</string>
+    <string name="O">O</string>
+    <string name="lat">Lat:</string>
+    <string name="log">Log:</string>
+    
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+        <string name="hora">Hora</string>
+        <string name="doispontos">:</string>
+        <string name="Aspasduplas">\"</string>
+        <string name="Aspa">\'</string>
+        <string name="Grau">°</string>
+
+
 
 </resources>
