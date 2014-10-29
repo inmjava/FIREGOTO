@@ -22,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ConfiguraBluetoothActivity"
+            android:label="@string/title_activity_configura_bluetooth" >
+        </activity>
     </application>
 
 </manifest>
