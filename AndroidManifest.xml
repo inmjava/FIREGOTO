@@ -26,6 +26,10 @@
             android:name=".ConfiguraBluetoothActivity"
             android:label="@string/title_activity_configura_bluetooth" >
         </activity>
+        <activity
+            android:name=".StatusActivity"
+            android:label="@string/title_activity_status" >
+        </activity>
     </application>
 
 </manifest>

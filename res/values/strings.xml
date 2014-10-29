@@ -5,6 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="configurar_bluetooth">Configurar Bluetooth</string>
-    <string name="title_activity_configura_bluetooth">ConfiguraBluetoothActivity</string>
+    <string name="title_activity_configura_bluetooth">Configura Bluetooth</string>
+    <string name="status">Status</string>
+    <string name="title_activity_status">Status</string>
 
 </resources>
