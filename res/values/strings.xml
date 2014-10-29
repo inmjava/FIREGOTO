@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">FIRGOTO</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Reginaldo!</string>
     <string name="action_settings">Settings</string>
     <string name="configurar_bluetooth">Configurar Bluetooth</string>
     <string name="title_activity_configura_bluetooth">Configura Bluetooth</string>
