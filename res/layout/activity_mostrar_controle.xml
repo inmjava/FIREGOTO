@@ -10,13 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.com.astronomoamador.firgoto.MostrarControleActivity" >
 
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <Button
             android:id="@+id/buttonNO"
+            style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -24,6 +24,10 @@
 
         <Button
             android:id="@+id/buttonN"
+                        style="@style/AppBaseTheme"
+            
+            
+            
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -31,19 +35,20 @@
 
         <Button
             android:id="@+id/buttonNE"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/NE" />
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" >
 
         <Button
             android:id="@+id/ButtonL"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -51,6 +56,7 @@
 
         <Button
             android:id="@+id/ButtonStop"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -60,11 +66,11 @@
 
         <Button
             android:id="@+id/ButtonO"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/O" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -73,6 +79,7 @@
 
         <Button
             android:id="@+id/ButtonSE"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -80,6 +87,7 @@
 
         <Button
             android:id="@+id/ButtonS"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -87,15 +95,14 @@
 
         <Button
             android:id="@+id/ButtonSO"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/SO" />
-
     </LinearLayout>
 
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -107,18 +114,15 @@
             android:text="@string/selecione_a_velociadade_"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/Grande" />
+    </LinearLayout>
 
-       
-</LinearLayout>
-    
-    
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <Button
             android:id="@+id/ButtonGuia"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -126,6 +130,7 @@
 
         <Button
             android:id="@+id/ButtonCentrp"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -133,6 +138,7 @@
 
         <Button
             android:id="@+id/ButtonLocalizar"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -140,14 +146,15 @@
 
         <Button
             android:id="@+id/ButtonRapido"
+                        style="@style/AppBaseTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/rapido" />
     </LinearLayout>
-    
-        <LinearLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -158,11 +165,8 @@
             android:text="@string/coordenada_atual_"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/Grande" />
+    </LinearLayout>
 
-       
-</LinearLayout>
-    
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -233,7 +237,6 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/Grande" />
 
-       
         <TextView
             android:id="@+id/TextViewGrauDEC"
             android:layout_width="wrap_content"
@@ -242,7 +245,7 @@
             android:text="00"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="@dimen/Grande" />
-    
+
         <TextView
             android:id="@+id/textGrausDEC"
             android:layout_width="wrap_content"
@@ -250,8 +253,7 @@
             android:layout_weight="1"
             android:text="@string/Grau"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-        
+
         <TextView
             android:id="@+id/TextViewMinDEC"
             android:layout_width="wrap_content"
@@ -260,7 +262,7 @@
             android:text="00"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="@dimen/Grande" />
-    
+
         <TextView
             android:id="@+id/textMinsDEC"
             android:layout_width="wrap_content"
@@ -268,8 +270,7 @@
             android:layout_weight="1"
             android:text="@string/Aspa"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-        
+
         <TextView
             android:id="@+id/TextViewSegDEC"
             android:layout_width="wrap_content"
@@ -278,7 +279,7 @@
             android:text="00"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="@dimen/Grande" />
-    
+
         <TextView
             android:id="@+id/textMinSegsDEC"
             android:layout_width="wrap_content"

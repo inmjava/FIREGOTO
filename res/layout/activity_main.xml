@@ -31,10 +31,9 @@
         android:id="@+id/buttonControl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
         android:onClick="mostrarControle"
-        
         android:text="@string/controle" />
 
 </RelativeLayout>
