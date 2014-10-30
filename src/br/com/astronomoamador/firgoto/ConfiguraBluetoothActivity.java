@@ -1,10 +1,15 @@
 package br.com.astronomoamador.firgoto;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Set;
+import java.util.UUID;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +21,8 @@ import android.widget.Toast;
 public class ConfiguraBluetoothActivity extends Activity {
 
 	private static final int REQUEST_ENABLE_BT = 0;
+	private BluetoothDevice mmDevice;
+	private BluetoothSocket mmSocket;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,37 +48,65 @@ public class ConfiguraBluetoothActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-	public void findDevices(View v){
-		BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+	public void findDevices(View v) {
+		BluetoothAdapter mBluetoothAdapter = BluetoothAdapter
+				.getDefaultAdapter();
 		if (mBluetoothAdapter == null) {
-			Toast.makeText(this, R.string.este_dispositivo_n_suporta_bluetooth, Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, R.string.este_dispositivo_n_suporta_bluetooth,
+					Toast.LENGTH_SHORT).show();
 			return;
 		}
-		
+
 		if (!mBluetoothAdapter.isEnabled()) {
-			Toast.makeText(this, R.string.antes_de_continuar_configure_seu_bluetooth, Toast.LENGTH_SHORT).show();
-		    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-		    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-		    return;
+			Toast.makeText(this,
+					R.string.antes_de_continuar_configure_seu_bluetooth,
+					Toast.LENGTH_SHORT).show();
+			Intent enableBtIntent = new Intent(
+					BluetoothAdapter.ACTION_REQUEST_ENABLE);
+			startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+			return;
 		}
-		
+
 		EditText txtDispositivosEncontrados = (EditText) findViewById(R.id.dispositivosEncontrados);
 		txtDispositivosEncontrados.setText("Procurando Dispositivos...");
-		Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-		String dispositivosEncontrados = "Dispositivos Encontrados: ";
+		Set<BluetoothDevice> pairedDevices = mBluetoothAdapter
+				.getBondedDevices();
 		// If there are paired devices
 		if (pairedDevices.size() > 0) {
-		    // Loop through paired devices
-		    for (BluetoothDevice device : pairedDevices) {
-		        // Add the name and address to an array adapter to show in a ListView
-		        //mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-		    	dispositivosEncontrados += ";" + device.getName() + "-" + device.getAddress();
-				txtDispositivosEncontrados.setText(dispositivosEncontrados);
-		    }
+			// Loop through paired devices
+			for (BluetoothDevice device : pairedDevices) {
+				// Add the name and address to an array adapter to show in a
+				// ListView
+				// mArrayAdapter.add(device.getName() + "\n" +
+				// device.getAddress());
+				if (device.getName().equalsIgnoreCase("P017818")) {
+					mmDevice = device;
+					txtDispositivosEncontrados.setText(device.getName()
+							+ " encontrado");
+				}
+			}
 		}
-		
-		
 	}
-	
+
+	public void enviarInformacoes(View v) {
+		try {
+			UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); // Standard
+			// mmSocket =
+			// device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
+			mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
+			mmSocket.connect();
+			OutputStream mmOutputStream = mmSocket.getOutputStream();
+			//InputStream mmInputStream = mmSocket.getInputStream();
+			mmOutputStream.write("Olá Funcionei!!!".getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// beginListenForData();
+		// connState = true;
+		// myLabel.setText("Status: Bluetooth aberto");
+		// connImageView.setBackgroundResource(R.drawable.comm1);
+	}
+
 }
