@@ -40,5 +40,9 @@ public class MainActivity extends Activity {
 	public void mostrarStatus(View v){
 		startActivity(new Intent(this, StatusActivity.class));
 	}
+	public void mostrarControle(View v){
+		startActivity(new Intent(this, MostrarControleActivity.class));
+	}
+
 	
 }

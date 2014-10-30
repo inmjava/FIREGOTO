@@ -3,10 +3,24 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_vertical"
     android:orientation="vertical"
     tools:context="br.com.astronomoamador.firgoto.StatusActivity" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/selecione_para_atualizar"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
+        
+    </LinearLayout>    
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -33,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
-            android:inputType="textPostalAddress" >
+            android:inputType="number" >
         </EditText>
 
         <TextView
@@ -49,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
-            android:inputType="textPostalAddress" >
+            android:inputType="number" >
         </EditText>
 
         <TextView
@@ -65,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
-            android:inputType="textPostalAddress" >
+            android:inputType="number" >
         </EditText>
 
         <TextView
@@ -106,12 +120,11 @@
             android:textOn="@string/O" />
 
         <EditText
-                        android:id="@+id/editTextGrauLog"
-            
+            android:id="@+id/editTextGrauLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
-            android:inputType="textPostalAddress" >
+            android:inputType="number" >
         </EditText>
 
         <TextView
@@ -127,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
-            android:inputType="textPostalAddress" >
+            android:inputType="number" >
         </EditText>
 
         <TextView
@@ -143,7 +156,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
-            android:inputType="textPostalAddress" >
+            android:inputType="number" >
         </EditText>
 
         <TextView
@@ -159,7 +172,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -167,7 +179,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textViewHora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -180,7 +192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
-            android:inputType="textPostalAddress" >
+            android:inputType="number" >
         </EditText>
 
         <TextView
@@ -196,7 +208,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
-            android:inputType="textPostalAddress" >
+            android:inputType="number" >
         </EditText>
 
         <TextView
@@ -212,7 +224,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
-            android:inputType="textPostalAddress" >
+            android:inputType="number" >
         </EditText>
 
         <CheckBox
@@ -220,7 +232,157 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textMinUTCSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/UTC"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ToggleButton
+            android:id="@+id/ToggleButtonUTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/Mais"
+            android:textOn="@string/Menos" />
+
+        <EditText
+            android:id="@+id/editTextUTCSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:inputType="number" >
+        </EditText>
+
+        <CheckBox
+            android:id="@+id/CheckBoxUTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewUTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:text="@string/UTC"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
+
+        <EditText
+            android:id="@+id/editTextHoraUTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textHoraUTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/doispontos"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextMinUTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textMinUTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/doispontos"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextSegUTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewLST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:text="@string/LST"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
+
+        <EditText
+            android:id="@+id/editTextHoraLST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textHoraLST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/doispontos"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextMinLST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textMinLST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/doispontos"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextSegLST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonUpdateStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/atualizar" />
+
 </LinearLayout>
+        

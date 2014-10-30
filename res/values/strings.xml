@@ -15,11 +15,15 @@
     <string name="O">O</string>
     <string name="lat">Lat:</string>
     <string name="log">Log:</string>
-    <string name="hora">Hora:</string>
+    <string name="hora">LMT:</string>
+    <string name="UTC">UTC:</string>
+    <string name="LST">LST:</string>
     <string name="doispontos">:</string>
     <string name="Aspasduplas">\"</string>
     <string name="Aspa">\'</string>
-    <string name="Grau">°</string>
+    <string name="Grau">\°</string>
+    <string name="Mais">\+</string>
+    <string name="Menos">\-</string>
 
     <string-array name="planets_array">
         <item>Mercury</item>
@@ -31,5 +35,10 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+
+    <string name="atualizar">Atualizar</string>
+    <string name="selecione_para_atualizar">Selecione para Atualizar</string>
+    <string name="controle">Controle</string>
+    <string name="title_activity_mostrar_controle">MostrarControleActivity</string>
 
 </resources>

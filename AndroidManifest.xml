@@ -30,6 +30,10 @@
             android:name=".StatusActivity"
             android:label="@string/title_activity_status" >
         </activity>
+        <activity
+            android:name=".MostrarControleActivity"
+            android:label="@string/title_activity_mostrar_controle" >
+        </activity>
     </application>
 
 </manifest>

@@ -24,8 +24,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnConexao"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
         android:onClick="mostrarStatus"
         android:text="@string/status" />
+
+    <Button
+        android:id="@+id/buttonControl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:onClick="mostrarControle"
+        
+        android:text="@string/controle" />
 
 </RelativeLayout>
