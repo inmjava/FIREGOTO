@@ -10,32 +10,61 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.com.astronomoamador.firgoto.MostrarControleActivity" >
 
+    
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        >
-
-    <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="Button" />
+        android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonNO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="Button" />
+            android:layout_weight="1"
+            android:text="@string/NO" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/buttonN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="Button" />
+            android:layout_weight="1"
+            android:text="@string/N" />
+
+        <Button
+            android:id="@+id/buttonNE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/NE" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/ButtonL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/L" />
+
+        <Button
+            android:id="@+id/ButtonStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:scrollHorizontally="false"
+            android:text="@string/STOP" />
+
+        <Button
+            android:id="@+id/ButtonO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/O" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -43,52 +72,220 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/Button02"
+            android:id="@+id/ButtonSE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="Button" />
+            android:layout_weight="1"
+            android:text="@string/SE" />
 
         <Button
-            android:id="@+id/Button03"
+            android:id="@+id/ButtonS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="Button" />
+            android:layout_weight="1"
+            android:text="@string/S" />
 
         <Button
-            android:id="@+id/Button01"
+            android:id="@+id/ButtonSO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="Button" />
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/SO" />
+
+    </LinearLayout>
+
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewSelVelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selecione_a_velociadade_"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
+
+       
+</LinearLayout>
+    
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/ButtonGuia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/guia" />
+
+        <Button
+            android:id="@+id/ButtonCentrp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/centro" />
+
+        <Button
+            android:id="@+id/ButtonLocalizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/localizar" />
+
+        <Button
+            android:id="@+id/ButtonRapido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/rapido" />
+    </LinearLayout>
+    
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewCoorAtual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coordenada_atual_"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
+
+       
+</LinearLayout>
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/TextViewRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/RA"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+
+        <TextView
+            android:id="@+id/TextViewHoraRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="00"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+
+        <TextView
+            android:id="@+id/textMindoisRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/doispontos"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/TextViewMinRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="00"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+
+        <TextView
+            android:id="@+id/textSegdoisRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/doispontos"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/TextViewSegRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="00"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1.38" >
+        android:layout_height="wrap_content" >
 
-        <Button
-            android:id="@+id/Button05"
+        <TextView
+            android:id="@+id/textViewDEC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="Button" />
+            android:layout_weight="1"
+            android:text="@string/DEC"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
 
-        <Button
-            android:id="@+id/Button06"
+       
+        <TextView
+            android:id="@+id/TextViewGrauDEC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/Button04"
+            android:layout_weight="1"
+            android:text="00"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+    
+        <TextView
+            android:id="@+id/textGrausDEC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="Button" />
+            android:layout_weight="1"
+            android:text="@string/Grau"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+        
+        <TextView
+            android:id="@+id/TextViewMinDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="00"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+    
+        <TextView
+            android:id="@+id/textMinsDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Aspa"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+        
+        <TextView
+            android:id="@+id/TextViewSegDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="00"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+    
+        <TextView
+            android:id="@+id/textMinSegsDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Aspasduplas"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 
 </LinearLayout>

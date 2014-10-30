@@ -13,8 +13,15 @@
     <string name="N">N</string>
     <string name="L">L</string>
     <string name="O">O</string>
+    <string name="NE">NE</string>
+    <string name="STOP">Stop</string>
+    <string name="NO">NO</string>
+    <string name="SE">SE</string>
+    <string name="SO">SO</string>
     <string name="lat">Lat:</string>
     <string name="log">Log:</string>
+    <string name="RA">RA:</string>
+    <string name="DEC">DEC:</string>
     <string name="hora">LMT:</string>
     <string name="UTC">UTC:</string>
     <string name="LST">LST:</string>
@@ -40,5 +47,11 @@
     <string name="selecione_para_atualizar">Selecione para Atualizar</string>
     <string name="controle">Controle</string>
     <string name="title_activity_mostrar_controle">MostrarControleActivity</string>
+    <string name="guia">G</string>
+    <string name="centro">C</string>
+    <string name="rapido">R</string>
+    <string name="localizar">L</string>
+    <string name="selecione_a_velociadade_">Selecione a velociadade:</string>
+    <string name="coordenada_atual_">Coordenada atual:</string>
 
 </resources>
