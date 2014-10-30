@@ -53,5 +53,8 @@
     <string name="localizar">L</string>
     <string name="selecione_a_velociadade_">Selecione a velociadade:</string>
     <string name="coordenada_atual_">Coordenada atual:</string>
+    <string name="find_devices">Find Devices</string>
+    <string name="antes_de_continuar_configure_seu_bluetooth">Antes de continuar configure seu bluetooth</string>
+    <string name="este_dispositivo_n_suporta_bluetooth">Este dispositivo não suporta bluetooth</string>
 
 </resources>

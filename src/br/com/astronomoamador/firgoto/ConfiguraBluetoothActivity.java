@@ -1,11 +1,21 @@
 package br.com.astronomoamador.firgoto;
 
+import java.util.Set;
+
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class ConfiguraBluetoothActivity extends Activity {
+
+	private static final int REQUEST_ENABLE_BT = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,4 +41,37 @@ public class ConfiguraBluetoothActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	public void findDevices(View v){
+		BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		if (mBluetoothAdapter == null) {
+			Toast.makeText(this, R.string.este_dispositivo_n_suporta_bluetooth, Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
+		if (!mBluetoothAdapter.isEnabled()) {
+			Toast.makeText(this, R.string.antes_de_continuar_configure_seu_bluetooth, Toast.LENGTH_SHORT).show();
+		    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+		    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+		    return;
+		}
+		
+		EditText txtDispositivosEncontrados = (EditText) findViewById(R.id.dispositivosEncontrados);
+		txtDispositivosEncontrados.setText("Procurando Dispositivos...");
+		Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+		String dispositivosEncontrados = "Dispositivos Encontrados: ";
+		// If there are paired devices
+		if (pairedDevices.size() > 0) {
+		    // Loop through paired devices
+		    for (BluetoothDevice device : pairedDevices) {
+		        // Add the name and address to an array adapter to show in a ListView
+		        //mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+		    	dispositivosEncontrados += ";" + device.getName() + "-" + device.getAddress();
+				txtDispositivosEncontrados.setText(dispositivosEncontrados);
+		    }
+		}
+		
+		
+	}
+	
 }
