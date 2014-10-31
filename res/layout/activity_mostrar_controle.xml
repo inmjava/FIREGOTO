@@ -4,10 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.com.astronomoamador.firgoto.MostrarControleActivity" >
 
     <LinearLayout
@@ -285,22 +281,21 @@
             android:text="@string/Aspasduplas"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
-  
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-           <TextView
-               android:id="@+id/textSpace"
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:text=" "
-               android:textAppearance="?android:attr/textAppearanceLarge"
-               android:textSize="@dimen/Pequeno" />
+        <TextView
+            android:id="@+id/textSpace"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Pequeno" />
+    </LinearLayout>
 
-          </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -430,24 +425,23 @@
             android:text="@string/Aspasduplas"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
-    
-        <LinearLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-           <TextView
-               android:id="@+id/textSpace1"
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:text=" "
-               android:textAppearance="?android:attr/textAppearanceLarge"
-               android:textSize="@dimen/Pequeno" />
-
-          </LinearLayout>
+        <TextView
+            android:id="@+id/textSpace1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Pequeno" />
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <Button
@@ -455,7 +449,16 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="mostrarGotosync"
             android:text="@string/goto_sync" />
+
+        <Button
+            android:id="@+id/buttonMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="mostrarMenu"
+            android:text="@string/menu" />
     </LinearLayout>
 
 </LinearLayout>

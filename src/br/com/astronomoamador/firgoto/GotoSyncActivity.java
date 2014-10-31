@@ -1,9 +1,11 @@
 package br.com.astronomoamador.firgoto;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class GotoSyncActivity extends Activity {
 
@@ -31,4 +33,12 @@ public class GotoSyncActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	public void mostrarControle(View v){
+		startActivity(new Intent(this, MostrarControleActivity.class));
+	}
+	public void mostrarMenu(View v){
+		startActivity(new Intent(this, MainActivity.class));
+	}
+
+
 }

@@ -6,7 +6,21 @@
     android:orientation="vertical"
     tools:context="br.com.astronomoamador.firgoto.GotoSyncActivity" >
 
-     <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textSpace1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/coordenada_atual_"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -127,7 +141,203 @@
             android:text="@string/Aspasduplas"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
-  
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
+        <TextView
+            android:id="@+id/textSpace2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Pequeno" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textSpaceCoordenaAlvo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/coordenada_alvo_"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewAlvoRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/alvo_ra"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+
+        <EditText
+            android:id="@+id/editTextGrauAlvoRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textGrauAlvoRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/doispontos"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextMinAlvoRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textMinAlvoRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/doispontos"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextSegAlvoRA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/TextViewAlvoDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/alvo_dec"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/Grande" />
+
+        <EditText
+            android:id="@+id/editTextGrauAlvoDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textGrauAlvoDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Grau"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextMinAlvoDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textMinAlvoDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Aspa"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextSegAlvoDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textSegAlvoDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Aspasduplas"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textSpace3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Pequeno" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ToggleButton
+            android:id="@+id/toggleButtonGotoSync"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/goto_sync"
+            android:textOff="@string/sync"
+            android:textOn="@string/gotu" />
+
+        <Button
+            android:id="@+id/buttonOK"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ok" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonControl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="mostrarControle"
+            android:text="@string/controle" />
+
+        <Button
+            android:id="@+id/buttonMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="mostrarMenu"
+            android:text="@string/menu" />
+    </LinearLayout>
 
 </LinearLayout>

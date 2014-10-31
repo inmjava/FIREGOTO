@@ -44,5 +44,8 @@ public class MainActivity extends Activity {
 		startActivity(new Intent(this, MostrarControleActivity.class));
 	}
 
+	public void mostrarGotosync(View v){
+		startActivity(new Intent(this, GotoSyncActivity.class));
+	}
 	
 }

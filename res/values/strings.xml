@@ -46,19 +46,27 @@
     <string name="atualizar">Atualizar</string>
     <string name="selecione_para_atualizar">Selecione para Atualizar</string>
     <string name="controle">Controle</string>
-    <string name="title_activity_mostrar_controle">MostrarControleActivity</string>
+    <string name="title_activity_mostrar_controle">Controle</string>
     <string name="guia">G</string>
     <string name="centro">C</string>
     <string name="rapido">R</string>
     <string name="localizar">L</string>
     <string name="selecione_a_velociadade_">Selecione a velociadade:</string>
     <string name="coordenada_atual_">Coordenada atual:</string>
+        <string name="coordenada_alvo_">Coordenada alvo:</string>
+    
     <string name="find_devices">Find Devices</string>
     <string name="antes_de_continuar_configure_seu_bluetooth">Antes de continuar configure seu bluetooth</string>
     <string name="este_dispositivo_n_suporta_bluetooth">Este dispositivo não suporta bluetooth</string>
     <string name="az">AZ</string>
     <string name="alt">ALT</string>
-    <string name="goto_sync">GOTO/SYNC</string>
-    <string name="title_activity_goto_sync">GotoSync</string>
+    <string name="goto_sync">Goto/Sync</string>
+    <string name="title_activity_goto_sync">GOTO SYNC</string>
+    <string name="alvo_dec">Alvo DEC:</string>
+    <string name="alvo_ra">Alvo RA:</string>
+    <string name="sync">Sync</string>
+    <string name="gotu">Goto</string>
+    <string name="ok">OK</string>
+    <string name="menu">Menu</string>
 
 </resources>
