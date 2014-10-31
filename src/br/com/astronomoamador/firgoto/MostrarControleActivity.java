@@ -35,10 +35,5 @@ public class MostrarControleActivity extends Activity {
 	}
 
 
-	public void mostrarGotosync(View v){
-		startActivity(new Intent(this, GotoSyncActivity.class));
-	}
-	public void mostrarMenu(View v){
-		startActivity(new Intent(this, MainActivity.class));
-	}
+	
 }

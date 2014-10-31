@@ -33,12 +33,7 @@ public class GotoSyncActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	public void mostrarControle(View v){
-		startActivity(new Intent(this, MostrarControleActivity.class));
-	}
-	public void mostrarMenu(View v){
-		startActivity(new Intent(this, MainActivity.class));
-	}
+	
 
 
 }
