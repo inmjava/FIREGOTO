@@ -28,9 +28,9 @@
     <string name="doispontos">:</string>
     <string name="Aspasduplas">\"</string>
     <string name="Aspa">\'</string>
-    <string name="Grau">\°</string>
-    <string name="Mais">\+</string>
-    <string name="Menos">\-</string>
+    <string name="Grau">°</string>
+    <string name="Mais">+</string>
+    <string name="Menos">-</string>
 
     <string-array name="planets_array">
         <item>Mercury</item>
@@ -56,5 +56,9 @@
     <string name="find_devices">Find Devices</string>
     <string name="antes_de_continuar_configure_seu_bluetooth">Antes de continuar configure seu bluetooth</string>
     <string name="este_dispositivo_n_suporta_bluetooth">Este dispositivo não suporta bluetooth</string>
+    <string name="az">AZ</string>
+    <string name="alt">ALT</string>
+    <string name="goto_sync">GOTO/SYNC</string>
+    <string name="title_activity_goto_sync">GotoSync</string>
 
 </resources>

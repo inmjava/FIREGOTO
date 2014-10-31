@@ -36,4 +36,12 @@
         android:onClick="mostrarControle"
         android:text="@string/controle" />
 
+    <Button
+        android:id="@+id/buttonGotoSync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonControl"
+        android:layout_centerHorizontal="true"
+        android:text="@string/goto_sync" />
+
 </RelativeLayout>

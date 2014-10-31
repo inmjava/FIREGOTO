@@ -5,9 +5,10 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="8"
         android:targetSdkVersion="21" />
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
         android:allowBackup="true"
@@ -34,6 +35,10 @@
         <activity
             android:name=".MostrarControleActivity"
             android:label="@string/title_activity_mostrar_controle" >
+        </activity>
+        <activity
+            android:name=".GotoSyncActivity"
+            android:label="@string/title_activity_goto_sync" >
         </activity>
     </application>
 
