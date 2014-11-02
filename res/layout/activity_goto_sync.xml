@@ -308,8 +308,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/goto_sync"
-            android:textOff="@string/sync"
-            android:textOn="@string/gotu" />
+            android:textOff="@string/gotu"
+            android:textOn="@string/sync" />
 
         <Button
             android:id="@+id/buttonOK"

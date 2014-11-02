@@ -6,6 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.view.View.OnClickListener;
+
+import android.widget.Button;
+
 
 public class MostrarControleActivity extends Activity {
 
@@ -13,6 +20,11 @@ public class MostrarControleActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mostrar_controle);
+
+		addListenerOnButton();
+
+
+
 	}
 
 	@Override
@@ -35,5 +47,37 @@ public class MostrarControleActivity extends Activity {
 	}
 
 
-	
+	public void addListenerOnButton() {
+
+		Button bGuia = (Button) findViewById(R.id.ButtonGuia);
+
+		bGuia.setOnClickListener(new OnClickListener()
+		{
+			TextView xTeste = (TextView) findViewById(R.id.TextViewHoraRA);
+
+			@Override
+			public void onClick(View v) {
+				xTeste.setText("11");
+			}
+		});
+
+		bGuia.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+			TextView xTeste = (TextView) findViewById(R.id.TextViewHoraRA);
+
+			    @Override
+			    public boolean onLongClick(View v) {
+					xTeste.setText("22");
+			      return false;
+			    }
+			  });
+
+
+		
+		
+		
+		
+		
+	}
+
 }
