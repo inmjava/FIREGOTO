@@ -81,7 +81,7 @@ public class GotoSyncActivity extends Activity {
 					break;
 			case R.id.radioM:
 				if (checked)
-					//	filecatalogue=R.raw.cataloguengc;
+					filecatalogue=R.raw.cataloguemessier;
 					break;
 			case R.id.radioIC:
 				if (checked)
@@ -119,7 +119,12 @@ public class GotoSyncActivity extends Activity {
 						String[] separated = line.split(";");
 						if (separated[0].equalsIgnoreCase(txtlocalizaDSS.getText().toString()))
 						{
-							txtvTextListaDss.setText(line);
+							
+							
+							String Texto = "Nome: "+separated[1]+separated[0]+" Const: "+separated[2]+"\n"+"RA: "+separated[3]+"h"+separated[4]+"m"+separated[5]+"s \n"+"DEC: "+separated[6]+separated[7]+"°"+separated[8]+"'"+separated[9]+"''"+"\n"+"BMAG: "+separated[10]+" VMAG: "+separated[11] +" SurfB: "+separated[12]+"\n"+"Type: "+separated[13]+"\n"+"Inf: "+separated[14];
+							
+							
+							txtvTextListaDss.setText(Texto);
 
 							txtRAH.setText(separated[3]);
 							txtRAM.setText(separated[4]);
