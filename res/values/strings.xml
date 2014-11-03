@@ -55,7 +55,6 @@
     <string name="coordenada_atual_">Coordenada atual:</string>
         <string name="coordenada_alvo_">Coordenada alvo:</string>
     
-    <string name="find_devices">Find Devices</string>
     <string name="antes_de_continuar_configure_seu_bluetooth">Antes de continuar configure seu bluetooth</string>
     <string name="este_dispositivo_n_suporta_bluetooth">Este dispositivo não suporta bluetooth</string>
     <string name="az">AZ</string>
@@ -70,5 +69,6 @@
     <string name="menu">Menu</string>
     <string name="acompanhamento">Acompanhamento</string>
     <string name="localizar_deep">Localizar Deep</string>
+    <string name="find_devices">Find Devices</string>
 
 </resources>

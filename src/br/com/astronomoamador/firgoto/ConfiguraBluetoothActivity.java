@@ -14,7 +14,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class ConfiguraBluetoothActivity extends Activity {
@@ -27,6 +30,19 @@ public class ConfiguraBluetoothActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_configura_bluetooth);
+		
+		String[] nomes = new String[] { "Nome 1", "Nome 2", "Nome 3" };
+		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nomes);
+		ListView listaBluetooth = (ListView) findViewById(R.id.listaBluetooth);
+		listaBluetooth.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		listaBluetooth.setAdapter(arrayAdapter);
 	}
 
 	@Override
@@ -49,28 +65,22 @@ public class ConfiguraBluetoothActivity extends Activity {
 	}
 
 	public void findDevices(View v) {
-		BluetoothAdapter mBluetoothAdapter = BluetoothAdapter
-				.getDefaultAdapter();
+		BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 		if (mBluetoothAdapter == null) {
-			Toast.makeText(this, R.string.este_dispositivo_n_suporta_bluetooth,
-					Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, R.string.este_dispositivo_n_suporta_bluetooth, Toast.LENGTH_SHORT).show();
 			return;
 		}
 
 		if (!mBluetoothAdapter.isEnabled()) {
-			Toast.makeText(this,
-					R.string.antes_de_continuar_configure_seu_bluetooth,
-					Toast.LENGTH_SHORT).show();
-			Intent enableBtIntent = new Intent(
-					BluetoothAdapter.ACTION_REQUEST_ENABLE);
+			Toast.makeText(this, R.string.antes_de_continuar_configure_seu_bluetooth, Toast.LENGTH_SHORT).show();
+			Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
 			return;
 		}
 
 		EditText txtDispositivosEncontrados = (EditText) findViewById(R.id.dispositivosEncontrados);
 		txtDispositivosEncontrados.setText("Procurando Dispositivos...");
-		Set<BluetoothDevice> pairedDevices = mBluetoothAdapter
-				.getBondedDevices();
+		Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 		// If there are paired devices
 		if (pairedDevices.size() > 0) {
 			// Loop through paired devices
@@ -81,8 +91,7 @@ public class ConfiguraBluetoothActivity extends Activity {
 				// device.getAddress());
 				if (device.getName().equalsIgnoreCase("P017818")) {
 					mmDevice = device;
-					txtDispositivosEncontrados.setText(device.getName()
-							+ " encontrado");
+					txtDispositivosEncontrados.setText(device.getName() + " encontrado");
 				}
 			}
 		}
@@ -96,7 +105,7 @@ public class ConfiguraBluetoothActivity extends Activity {
 			mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
 			mmSocket.connect();
 			OutputStream mmOutputStream = mmSocket.getOutputStream();
-			//InputStream mmInputStream = mmSocket.getInputStream();
+			// InputStream mmInputStream = mmSocket.getInputStream();
 			mmOutputStream.write("Olá Funcionei!!!".getBytes());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
