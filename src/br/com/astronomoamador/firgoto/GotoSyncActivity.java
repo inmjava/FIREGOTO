@@ -21,16 +21,31 @@ public class GotoSyncActivity extends Activity {
 	InputStream catalogue = null;
 	int filecatalogue=0;
 	boolean NorteSul=false;
-
-
-
-
-
+	private EditText txtlocalizaDSS;
+	private EditText txtRAH;
+	private EditText txtRAM;
+	private EditText txtRAS;
+	private EditText txtDG;
+	private EditText txtDM;
+	private EditText txtDS;
+	private TextView txtvTextListaDss;
+	private ToggleButton toggleNorteSul;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_goto_sync);
+		
+		txtlocalizaDSS = (EditText) findViewById(R.id.editTextlocalizaDSS);
+		txtRAH = (EditText) findViewById(R.id.editTextHoraAlvoRA);
+		txtRAM = (EditText) findViewById(R.id.editTextMinAlvoRA);
+		txtRAS = (EditText) findViewById(R.id.editTextSegAlvoRA);
+		txtDG = (EditText) findViewById(R.id.editTextGrauAlvoDEC);
+		txtDM = (EditText) findViewById(R.id.editTextMinAlvoDEC);
+		txtDS = (EditText) findViewById(R.id.editTextSegAlvoDEC);
+		txtvTextListaDss = (TextView) findViewById(R.id.textViewListaDss);
+		toggleNorteSul = (ToggleButton) findViewById(R.id.toggleButtonSinalAlvoDEC);
+		
 	}
 
 	@Override
@@ -51,9 +66,6 @@ public class GotoSyncActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
-
-
 
 
 	public void onRadioButtonClicked(View view) {
@@ -89,19 +101,7 @@ public class GotoSyncActivity extends Activity {
 		}
 	}
 
-
-
 	public void localizaDeep(View v){
-
-		EditText txtlocalizaDSS = (EditText) findViewById(R.id.editTextlocalizaDSS);
-		EditText txtRAH = (EditText) findViewById(R.id.editTextHoraAlvoRA);
-		EditText txtRAM = (EditText) findViewById(R.id.editTextMinAlvoRA);
-		EditText txtRAS = (EditText) findViewById(R.id.editTextSegAlvoRA);
-		EditText txtDG = (EditText) findViewById(R.id.editTextGrauAlvoDEC);
-		EditText txtDM = (EditText) findViewById(R.id.editTextMinAlvoDEC);
-		EditText txtDS = (EditText) findViewById(R.id.editTextSegAlvoDEC);
-		TextView txtvTextListaDss = (TextView) findViewById(R.id.textViewListaDss);
-		ToggleButton toggleNorteSul = (ToggleButton) findViewById(R.id.toggleButtonSinalAlvoDEC);
 
 		try
 		{
@@ -161,10 +161,6 @@ public class GotoSyncActivity extends Activity {
 			error=e.getMessage();
 		}
 
-
 	}
-
-
-
 
 }
