@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">FIRGOTO</string>
+    <string name="app_name">FIREGOTO</string>
     <string name="hello_world">Reginaldo!</string>
     <string name="action_settings">Settings</string>
     <string name="configurar_bluetooth">Configurar Bluetooth</string>
