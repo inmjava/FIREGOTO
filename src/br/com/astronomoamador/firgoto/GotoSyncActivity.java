@@ -19,7 +19,7 @@ public class GotoSyncActivity extends Activity {
 
 	////////variaveis geral
 	InputStream catalogue = null;
-	int filecatalogue=0;
+	int filecatalogue=R.raw.cataloguemessier;
 	boolean NorteSul=false;
 	private EditText txtlocalizaDSS;
 	private EditText txtRAH;
@@ -142,7 +142,7 @@ public class GotoSyncActivity extends Activity {
 							txtDG.setText(separated[7]);
 							txtDM.setText(separated[8]);
 							txtDS.setText(separated[9]);
-
+							break;
 
 						}
 
