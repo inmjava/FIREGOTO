@@ -31,10 +31,12 @@ public class ConfiguraBluetoothActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_configura_bluetooth);
 		
-		String[] nomes = new String[] { "Nome 1", "Nome 2", "Nome 3" };
+		final String[] nomes = new String[] { "Nome 1", "Nome 2", "Nome 3" };
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nomes);
 		ListView listaBluetooth = (ListView) findViewById(R.id.listaBluetooth);
 		listaBluetooth.setOnClickListener(new OnClickListener() {
+			
+			String[] nomes2 = nomes;
 			
 			@Override
 			public void onClick(View v) {
