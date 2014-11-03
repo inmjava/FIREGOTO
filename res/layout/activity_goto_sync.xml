@@ -141,6 +141,7 @@
             android:text="@string/Aspasduplas"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -154,6 +155,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/Pequeno" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -182,7 +184,7 @@
             android:textSize="@dimen/Grande" />
 
         <EditText
-            android:id="@+id/editTextGrauAlvoRA"
+            android:id="@+id/editTextHoraAlvoRA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -190,7 +192,7 @@
         </EditText>
 
         <TextView
-            android:id="@+id/textGrauAlvoRA"
+            android:id="@+id/textHoraAlvoRA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -224,7 +226,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/TextViewAlvoDEC"
@@ -234,6 +237,14 @@
             android:text="@string/alvo_dec"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="@dimen/Grande" />
+
+        <ToggleButton
+            android:id="@+id/toggleButtonSinalAlvoDEC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/Mais"
+            android:textOn="@string/Menos" />
 
         <EditText
             android:id="@+id/editTextGrauAlvoDEC"
@@ -318,5 +329,81 @@
             android:layout_weight="1"
             android:text="@string/ok" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonlocalizaDeep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="localizaDeep"
+            android:text="@string/localizar_deep" />
+
+        <EditText
+            android:id="@+id/editTextlocalizaDSS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radioM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:onClick="onRadioButtonClicked"
+                android:text="M"
+                android:textSize="@dimen/medio" />
+
+            <RadioButton
+                android:id="@+id/radioC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="C"
+                android:textSize="@dimen/medio" />
+
+            <RadioButton
+                android:id="@+id/radioIC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="IC"
+                android:textSize="@dimen/medio" />
+
+            <RadioButton
+                android:id="@+id/radioNGC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="NGC"
+                android:textSize="@dimen/medio" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewListaDss"
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </LinearLayout>

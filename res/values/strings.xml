@@ -69,5 +69,6 @@
     <string name="ok">OK</string>
     <string name="menu">Menu</string>
     <string name="acompanhamento">Acompanhamento</string>
+    <string name="localizar_deep">Localizar Deep</string>
 
 </resources>
