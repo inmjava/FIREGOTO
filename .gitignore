@@ -12,6 +12,9 @@
 bin/
 gen/
 
+# Settings files
+.settings/
+
 # Gradle files
 .gradle/
 build/
