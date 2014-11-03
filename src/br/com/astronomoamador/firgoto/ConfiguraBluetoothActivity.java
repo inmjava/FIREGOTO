@@ -2,6 +2,7 @@ package br.com.astronomoamador.firgoto;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
 
@@ -15,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -30,21 +33,6 @@ public class ConfiguraBluetoothActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_configura_bluetooth);
-		
-		final String[] nomes = new String[] { "Nome 1", "Nome 2", "Nome 3" };
-		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nomes);
-		ListView listaBluetooth = (ListView) findViewById(R.id.listaBluetooth);
-		listaBluetooth.setOnClickListener(new OnClickListener() {
-			
-			String[] nomes2 = nomes;
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		listaBluetooth.setAdapter(arrayAdapter);
 	}
 
 	@Override
@@ -80,9 +68,11 @@ public class ConfiguraBluetoothActivity extends Activity {
 			return;
 		}
 
-		EditText txtDispositivosEncontrados = (EditText) findViewById(R.id.dispositivosEncontrados);
+		final EditText txtDispositivosEncontrados = (EditText) findViewById(R.id.dispositivosEncontrados);
 		txtDispositivosEncontrados.setText("Procurando Dispositivos...");
-		Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+		final Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+		
+		final ArrayList<String> nomesDispositivosEncontrados = new ArrayList<String>();
 		// If there are paired devices
 		if (pairedDevices.size() > 0) {
 			// Loop through paired devices
@@ -91,12 +81,25 @@ public class ConfiguraBluetoothActivity extends Activity {
 				// ListView
 				// mArrayAdapter.add(device.getName() + "\n" +
 				// device.getAddress());
+				nomesDispositivosEncontrados.add(device.getName());
 				if (device.getName().equalsIgnoreCase("P017818")) {
 					mmDevice = device;
 					txtDispositivosEncontrados.setText(device.getName() + " encontrado");
 				}
 			}
 		}
+		
+		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nomesDispositivosEncontrados);
+		ListView listaBluetooth = (ListView) findViewById(R.id.listaBluetooth);
+		listaBluetooth.setAdapter(arrayAdapter);
+		listaBluetooth.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				txtDispositivosEncontrados.setText("Tentando se conectar a " + nomesDispositivosEncontrados.get(position));
+				mmDevice = (BluetoothDevice) pairedDevices.toArray()[position];
+				enviarInformacoes(null);
+			}
+		});
 	}
 
 	public void enviarInformacoes(View v) {
