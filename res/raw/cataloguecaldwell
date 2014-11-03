@@ -1,0 +1,110 @@
+id;Cat;CON;RH;RM;RS;V;DG;DM;DS;BMAG;VMAG;SB;Type;Infor:
+1;Caldwell;Cep;0;44;24;+;85;20;0;;8.1;;Oc; NGC 188
+2;Caldwell;Cep;0;13;0;+;72;32;0;;11.6;;Pl;Bow Tie Nebula NGC 40
+3;Caldwell;Dra;12;16;42;+;69;28;0;;9.7;;Sb; NGC 4236
+4;Caldwell;Cep;21;1;48;+;68;12;0;;6.8;;Bn;Iris Nebula NGC 7023
+5;Caldwell;Cam;3;46;48;+;68;6;0;;9.2;;Sp; IC 342
+6;Caldwell;Dra;17;58;36;+;66;38;0;;8.8;;Pl;Cat's Eye Nebula NGC 6543
+7;Caldwell;Cam;7;36;54;+;65;36;0;;8.9;;Sp; NGC 2403
+8;Caldwell;Cas;1;29;30;+;63;18;0;;9.5;;Oc; NGC 559
+9;Caldwell;Cep;22;56;48;+;62;37;0;;7.7;;Bn;Cave Nebula Sh2-155
+10;Caldwell;Cas;1;46;0;+;61;15;0;;7.1;;Oc; NGC 663
+11;Caldwell;Cas;23;20;42;+;61;12;0;;7.0;;Bn;Bubble nebula NGC 7635
+12;Caldwell;Cep;20;34;48;+;60;9;0;;9.7;;Sp; NGC 6946
+13;Caldwell;Cas;1;19;6;+;58;20;0;;6.4;;Oc;Owl or E.T. Cluster NGC 457
+14;Caldwell;Per;2;20;0;+;57;8;0;;4.3;;Oc;Double Cluster, h & chi Persei NGC 869/884
+15;Caldwell;Cyg;19;44;48;+;50;31;0;;9.8;;Pl;Blinking Planetary NGC 6826
+16;Caldwell;Lac;22;15;18;+;49;53;0;;6.4;;Oc; NGC 7243
+17;Caldwell;Cas;0;33;12;+;48;30;0;;9.3;;El; NGC 147
+18;Caldwell;Cas;0;39;0;+;48;20;0;;9.2;;El; NGC 185
+19;Caldwell;Cyg;21;53;30;+;47;16;0;;10.0;;Bn;Cocoon Nebula IC 5146
+20;Caldwell;Cyg;20;58;48;+;44;20;0;;6.0;;Bn;North America Nebula NGC 7000
+21;Caldwell;CVn;12;28;12;+;44;6;0;;9.4;;Ir; NGC 4449
+22;Caldwell;And;23;25;54;+;42;33;0;;9.2;;Pl;Blue Snowball NGC 7662
+23;Caldwell;And;2;22;36;+;42;21;0;;9.9;;Sb; NGC 891
+24;Caldwell;Per;3;19;48;+;41;31;0;;11.6;;Sx;Perseus A NGC 1275
+25;Caldwell;Lyn;7;38;6;+;38;53;0;;10.4;;Gc; NGC 2419
+26;Caldwell;CVn;12;17;30;+;37;49;0;;10.6;;Sp; NGC 4244
+27;Caldwell;Cyg;20;12;0;+;38;21;0;;7.5;;Bn;Crescent Nebula NGC 6888
+28;Caldwell;And;1;57;48;+;37;41;0;;5.7;;Oc; NGC 752
+29;Caldwell;CVn;13;10;54;+;37;3;0;;9.8;;Sb; NGC 5005
+30;Caldwell;Peg;22;37;6;+;34;25;0;;9.5;;Sb; NGC 7331
+31;Caldwell;Aur;5;16;12;+;34;16;0;;6.0;;Bn;Flaming Star Nebula IC 405
+32;Caldwell;CVn;12;42;6;+;32;32;0;;9.3;;Sp;Whale Galaxy NGC 4631
+33;Caldwell;Cyg;20;56;24;+;31;43;0;;-;;Sn;East Veil Nebula 6992/5
+34;Caldwell;Cyg;20;45;42;+;30;43;0;;-;;Sn;West Veil Nebula NGC 6960
+35;Caldwell;Com;13;0;6;+;27;59;0;;11.4;;El; NGC 4889
+36;Caldwell;Com;12;36;0;+;27;58;0;;9.8;;Sp; NGC 4559
+37;Caldwell;Vul;20;12;0;+;26;29;0;;5.7;;Oc; NGC 6885
+38;Caldwell;Com;12;36;18;+;25;59;0;;9.6;;Sb;Needle Galaxy NGC 4565
+39;Caldwell;Gem;7;29;12;+;20;55;0;;9.9;;Pl;Eskimo or Clown Nebula NGC 2392
+40;Caldwell;Leo;11;20;6;+;18;21;0;;10.9;;Sb; NGC 3626
+41;Caldwell;Tau;4;27;0;+;16;0;0;;1.0;;Oc;Hyades -
+42;Caldwell;Del;21;1;30;+;16;11;0;;10.6;;Gc; NGC 7006
+43;Caldwell;Peg;0;3;18;+;16;9;0;;10.5;;Sb; NGC 7814
+44;Caldwell;Peg;23;4;54;+;12;19;0;;11.0;;Sb; NGC 7479
+45;Caldwell;Boo;13;37;30;+;8;53;0;;10.2;;Sp; NGC 5248
+46;Caldwell;Mon;6;39;12;+;8;44;0;;10.0;;Bn;Hubble's Variable Nebula NGC 2261
+47;Caldwell;Del;20;34;12;+;7;24;0;;8.9;;Gc; NGC 6934
+48;Caldwell;Can;9;10;18;+;7;2;0;;10.3;;Sp; NGC 2775
+49;Caldwell;Mon;6;32;18;+;5;3;0;;-;;Bn;Rosette Nebula NGC 2237-9
+50;Caldwell;Mon;6;32;24;+;4;52;0;;4.8;;Oc; NGC 2244
+51;Caldwell;Cet;1;4;48;+;2;7;0;;9.0;;Ir; IC 1613
+52;Caldwell;Vir;12;48;36;-;5;48;0;;9.3;;El; NGC 4697
+53;Caldwell;Sex;10;5;12;-;7;43;0;;9.1;;El;Spindle Galaxy NGC 3115
+54;Caldwell;Mon;8;0;12;-;10;47;0;;7.6;;Oc; NGC 2506
+55;Caldwell;Aqr;21;4;12;-;11;22;0;;8.3;;Pl;Saturn Nebula NGC 7009
+56;Caldwell;Cet;0;47;0;-;11;53;0;;8.0;;Pl; NGC 246
+57;Caldwell;Sgr;19;44;54;-;14;48;0;;9.3;;Ir;Barnard's Galaxy NGC 6822
+58;Caldwell;CMa;7;17;48;-;15;37;0;;7.2;;Oc; NGC 2360
+59;Caldwell;Hya;10;24;48;-;18;38;0;;8.6;;Pl;Ghost of Jupiter NGC 3242
+60;Caldwell;Crv;12;1;54;-;18;52;0;;11.3;;Sp;Antennae Galaxies NGC 4038
+61;Caldwell;Crv;12;1;54;-;18;53;0;;13.0;;Sp;Antennae Galaxies NGC 4039
+62;Caldwell;Cet;0;47;6;-;20;46;0;;8.9;;Sp; NGC 247
+63;Caldwell;Aqr;22;29;36;-;20;48;0;;6.5;;Pl;Helix Nebula NGC 7293
+64;Caldwell;CMa;7;18;48;-;24;57;0;;4.1;;Oc; NGC 2362
+65;Caldwell;Scl;0;47;36;-;25;17;0;;7.1;;Sp;Sculptor Galaxy NGC 253
+66;Caldwell;Hya;14;39;36;-;26;32;0;;10.2;;Gc; NGC 5694
+67;Caldwell;For;2;46;18;-;30;17;0;;9.2;;Sb; NGC 1097
+68;Caldwell;CrA;19;1;54;-;36;57;0;;9.7;;Bn; NGC 6729
+69;Caldwell;Sco;17;13;42;-;37;6;0;;12.8;;Pl;Bug Nebula NGC 6302
+70;Caldwell;Scl;0;54;54;-;37;41;0;;8.1;;Sp; NGC 300
+71;Caldwell;Pup;7;52;18;-;38;33;0;;5.8;;Oc; NGC 2477
+72;Caldwell;Scl;0;14;54;-;39;11;0;;8.2;;Sb; NGC 55
+73;Caldwell;Col;5;14;6;-;40;3;0;;7.3;;Gc; NGC 1851
+74;Caldwell;Vel;10;7;42;-;40;26;0;;8.2;;Pl;Eight Burst Nebula NGC 3132
+75;Caldwell;Sco;16;25;36;-;40;40;0;;5.8;;Oc; NGC 6124
+76;Caldwell;Sco;16;54;0;-;41;48;0;;2.6;;Oc; NGC 6231
+77;Caldwell;Cen;13;25;30;-;43;1;0;;7.0;;Px;Centaurus A NGC 5128
+78;Caldwell;CrA;18;8;0;-;43;42;0;;6.6;;Gc; NGC 6541
+79;Caldwell;Vel;10;17;36;-;46;25;0;;6.7;;Gc; NGC 3201
+80;Caldwell;Cen;13;26;48;-;47;29;0;;3.6;;Gc;Omega Centauri NGC 5139
+81;Caldwell;Ara;17;25;30;-;48;25;0;;8.1;;Gc; NGC 6352
+82;Caldwell;Ara;16;41;18;-;48;46;0;;5.2;;Oc; NGC 6193
+83;Caldwell;Cen;13;5;24;-;49;28;0;;9.5;;Sp; NGC 4945
+84;Caldwell;Cen;13;46;24;-;51;22;0;;7.6;;Gc; NGC 5286
+85;Caldwell;Vel;8;40;12;-;53;4;0;;2.5;;Oc;Omicron Vel Cluster IC 2391
+86;Caldwell;Ara;17;40;42;-;53;40;0;;5.6;;Gc; NGC 6397
+87;Caldwell;Hor;3;12;18;-;55;13;0;;8.4;;Gc; NGC 1261
+88;Caldwell;Cir;15;5;42;-;55;36;0;;7.9;;Oc; NGC 5823
+89;Caldwell;Nor;16;18;54;-;57;54;0;;5.4;;Oc;S Norma Cluster NGC 6087
+90;Caldwell;Car;9;21;24;-;58;19;0;;9.7;;Pl; NGC 2867
+91;Caldwell;Car;11;6;24;-;58;40;0;;3.0;;Oc; NGC 3532
+92;Caldwell;Car;10;43;48;-;59;52;0;;6.2;;Bn;Eta Carinae Nebula NGC 3372
+93;Caldwell;Pav;19;10;54;-;59;59;0;;5.4;;Gc; NGC 6752
+94;Caldwell;Cru;12;53;36;-;60;20;0;;4.2;;Oc;Jewel Box NGC 4755
+95;Caldwell;TrA;16;3;42;-;60;30;0;;5.1;;Oc; NGC 6025
+96;Caldwell;Car;7;58;18;-;60;52;0;;3.8;;Oc; NGC 2516
+97;Caldwell;Cen;11;36;6;-;61;37;0;;5.3;;Oc; NGC 3766
+98;Caldwell;Cru;12;42;18;-;62;58;0;;6.9;;Oc; NGC 4609
+99;Caldwell;Cru;12;53;0;-;63;0;0;;-;;Dn;Coalsack Nebula -
+100;Caldwell;Cen;11;36;36;-;63;2;0;;4.5;;Oc;Lambda Centauri Nebula IC 2944
+101;Caldwell;Pav;19;9;48;-;63;51;0;;9.0;;Sb; NGC 6744
+102;Caldwell;Car;10;43;12;-;64;24;0;;1.9;;Oc;Theta Car Cluster IC 2602
+103;Caldwell;Dor;5;38;42;-;69;6;0;;1.0;;Bn;Tarantula Nebula NGC2070
+104;Caldwell;Tuc;1;3;12;-;70;51;0;;6.6;;Gc; NGC362
+105;Caldwell;Mus;12;59;36;-;70;53;0;;7.3;;Gc; 4833
+106;Caldwell;Tuc;0;24;6;-;72;5;0;;4.0;;Gc;47 Tucanae  NGC104
+107;Caldwell;Aps;16;25;48;-;72;12;0;;9.3;;Gc; NGC6101
+108;Caldwell;Mus;12;25;48;-;72;40;0;;7.8;;Gc; NGC4372
+109;Caldwell;Cha;10;9;30;-;80;52;0;;11.6;;Pl; NGC3195

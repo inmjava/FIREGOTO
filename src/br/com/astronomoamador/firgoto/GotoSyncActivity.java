@@ -77,7 +77,7 @@ public class GotoSyncActivity extends Activity {
 			switch(view.getId()) {
 			case R.id.radioC:
 				if (checked)
-					//	 filecatalogue=R.raw.cataloguengc;
+						 filecatalogue=R.raw.cataloguecaldwell;
 					break;
 			case R.id.radioM:
 				if (checked)
