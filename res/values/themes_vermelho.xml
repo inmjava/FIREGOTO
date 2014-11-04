@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="Vermelho" parent="android:Theme.Black">
+
+    <item name="android:editTextStyle">@style/EditTextVermelho</item>
+
+    <item name="android:textColorHighlight">#99cc0000</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewVermelho</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxVermelho</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtonVermelho</item>
+
+    <item name="android:buttonStyle">@style/ButtonVermelho</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonVermelho</item>
+
+    <item name="android:spinnerStyle">@style/SpinnerVermelho</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemVermelho</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarVermelho</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarVermelho</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarVermelho</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigVermelho</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallVermelho</item>
+
+    <item name="android:buttonStyleToggle">@style/ToggleVermelho</item>
+
+    <item name="android:listViewStyle">@style/ListViewVermelho</item>
+
+    <item name="android:listViewWhiteStyle">@style/ListViewVermelho.White</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerItemVermelho</item>
+
+  </style>
+
+</resources>
