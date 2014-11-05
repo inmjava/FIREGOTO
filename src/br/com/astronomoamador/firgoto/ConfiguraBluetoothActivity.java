@@ -28,6 +28,7 @@ public class ConfiguraBluetoothActivity extends Activity {
 	private static final int REQUEST_ENABLE_BT = 0;
 	private BluetoothDevice mmDevice;
 	private BluetoothSocket mmSocket;
+	private OutputStream mmOutputStream;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -104,13 +105,15 @@ public class ConfiguraBluetoothActivity extends Activity {
 
 	public void enviarInformacoes(View v) {
 		try {
-			UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); // Standard
-			// mmSocket =
-			// device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
-			mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
-			mmSocket.connect();
-			OutputStream mmOutputStream = mmSocket.getOutputStream();
-			// InputStream mmInputStream = mmSocket.getInputStream();
+			if(mmOutputStream == null){
+				UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); // Standard
+				// mmSocket =
+				// device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
+				mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
+				mmSocket.connect();
+				mmOutputStream = mmSocket.getOutputStream();
+				// InputStream mmInputStream = mmSocket.getInputStream();
+			}
 			mmOutputStream.write("Olá Funcionei!!!".getBytes());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -121,5 +124,6 @@ public class ConfiguraBluetoothActivity extends Activity {
 		// myLabel.setText("Status: Bluetooth aberto");
 		// connImageView.setBackgroundResource(R.drawable.comm1);
 	}
+	
 
 }
