@@ -29,8 +29,6 @@ public class ConfiguraBluetoothActivity extends Activity {
 
 	private static final int REQUEST_ENABLE_BT = 0;
 	private BluetoothDevice mmDevice;
-	private BluetoothSocket mmSocket;
-	private OutputStream mmOutputStream;
 	private ConnectedThread connectedThread;
 	
 	private final Handler mHandler = new Handler() {
