@@ -139,7 +139,7 @@ public class GotoSyncActivity extends Activity {
 						if (StarFile)
 						{
 
-							if (line.contains((txtlocalizaDSS.getText().toString())))
+							if (line.toUpperCase().contains((txtlocalizaDSS.getText().toString().toUpperCase())))
 							{
 
 
