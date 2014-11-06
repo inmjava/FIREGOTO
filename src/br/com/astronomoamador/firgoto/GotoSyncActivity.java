@@ -186,9 +186,9 @@ public class GotoSyncActivity extends Activity {
 
 								txtRAH.setText(separated[3]);
 								txtRAM.setText(separated[4]);
-								txtRAS.setText(separated[5]);
+								txtRAS.setText("0");
 
-								if (separated[6].equalsIgnoreCase("-"))
+								if (separated[5].equalsIgnoreCase("-"))
 								{
 									toggleNorteSul.setChecked(true);
 								}
@@ -197,9 +197,9 @@ public class GotoSyncActivity extends Activity {
 									toggleNorteSul.setChecked(false);
 
 								}
-								txtDG.setText(separated[7]);
-								txtDM.setText(separated[8]);
-								txtDS.setText(separated[9]);
+								txtDG.setText(separated[6]);
+								txtDM.setText(separated[7]);
+								txtDS.setText("0");
 								break;
 
 							}
