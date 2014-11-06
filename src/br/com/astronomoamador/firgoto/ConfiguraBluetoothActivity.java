@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.UUID;
-
-import br.com.astronomoamador.firgoto.bluetooth.ConnectedThread;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -14,16 +11,19 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import br.com.astronomoamador.firgoto.bluetooth.ConnectedThread;
+import br.com.astronomoamador.firgoto.bluetooth.Constants;
 
 public class ConfiguraBluetoothActivity extends Activity {
 
@@ -32,6 +32,21 @@ public class ConfiguraBluetoothActivity extends Activity {
 	private BluetoothSocket mmSocket;
 	private OutputStream mmOutputStream;
 	private ConnectedThread connectedThread;
+	
+	private final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+            case Constants.MESSAGE_READ:
+                byte[] readBuf = (byte[]) msg.obj;
+                // construct a string from the valid bytes in the buffer
+                String readMessage = new String(readBuf, 0, msg.arg1);
+				txtDispositivosEncontrados.setText(txtDispositivosEncontrados.getText().toString() + readMessage);
+                break;
+            }
+        }
+    };
+	private EditText txtDispositivosEncontrados;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +87,7 @@ public class ConfiguraBluetoothActivity extends Activity {
 			return;
 		}
 
-		final EditText txtDispositivosEncontrados = (EditText) findViewById(R.id.dispositivosEncontrados);
+		txtDispositivosEncontrados = (EditText) findViewById(R.id.dispositivosEncontrados);
 		txtDispositivosEncontrados.setText("Procurando Dispositivos...");
 		final Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 		
@@ -99,7 +114,6 @@ public class ConfiguraBluetoothActivity extends Activity {
 		listaBluetooth.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				txtDispositivosEncontrados.setText("Tentando se conectar a " + nomesDispositivosEncontrados.get(position));
 				mmDevice = (BluetoothDevice) pairedDevices.toArray()[position];
 				try {
 					enviarInformacoes(null);
@@ -113,9 +127,10 @@ public class ConfiguraBluetoothActivity extends Activity {
 
 	public void enviarInformacoes(View v) throws IOException {
 		if(connectedThread == null){
-			connectedThread = new ConnectedThread(mmDevice, null);
+			connectedThread = new ConnectedThread(mmDevice, mHandler);
+			new Thread(connectedThread).start();
 		}
-		connectedThread.write("Olá Funcionei!!!".getBytes());
+		connectedThread.write("teste 2".getBytes());
 		
 //		try {
 //			if(mmOutputStream == null){
