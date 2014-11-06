@@ -68,7 +68,7 @@
     <string name="ok">OK</string>
     <string name="menu">Menu</string>
     <string name="acompanhamento">Acompanhamento</string>
-    <string name="localizar_deep">Localizar Deep</string>
+    <string name="localizar_deep">"Procurar Obj:"</string>
     <string name="find_devices">Find Devices</string>
 
 </resources>

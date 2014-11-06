@@ -350,7 +350,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="localizaDeep"
-            android:text="@string/localizar" />
+            android:text="@string/localizar_deep" />
 
         <EditText
             android:id="@+id/editTextlocalizaDSS"

@@ -205,6 +205,13 @@ public class GotoSyncActivity extends Activity {
 							}
 
 						}
+						
+						if(Texto==null)
+						{
+							txtvTextListaDss.setText("not found");
+						}
+						
+						
 					}
 				}catch (Exception e) 
 				{
