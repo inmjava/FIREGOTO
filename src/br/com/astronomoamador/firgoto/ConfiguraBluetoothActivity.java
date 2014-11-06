@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
 
+import br.com.astronomoamador.firgoto.bluetooth.ConnectedThread;
+
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -29,6 +31,7 @@ public class ConfiguraBluetoothActivity extends Activity {
 	private BluetoothDevice mmDevice;
 	private BluetoothSocket mmSocket;
 	private OutputStream mmOutputStream;
+	private ConnectedThread connectedThread;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -98,27 +101,37 @@ public class ConfiguraBluetoothActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				txtDispositivosEncontrados.setText("Tentando se conectar a " + nomesDispositivosEncontrados.get(position));
 				mmDevice = (BluetoothDevice) pairedDevices.toArray()[position];
-				enviarInformacoes(null);
+				try {
+					enviarInformacoes(null);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 	}
 
-	public void enviarInformacoes(View v) {
-		try {
-			if(mmOutputStream == null){
-				UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); // Standard
-				// mmSocket =
-				// device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
-				mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
-				mmSocket.connect();
-				mmOutputStream = mmSocket.getOutputStream();
-				// InputStream mmInputStream = mmSocket.getInputStream();
-			}
-			mmOutputStream.write("Olá Funcionei!!!".getBytes());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public void enviarInformacoes(View v) throws IOException {
+		if(connectedThread == null){
+			connectedThread = new ConnectedThread(mmDevice, null);
 		}
+		connectedThread.write("Olá Funcionei!!!".getBytes());
+		
+//		try {
+//			if(mmOutputStream == null){
+//				UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); // Standard
+//				// mmSocket =
+//				// device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
+//				mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
+//				mmSocket.connect();
+//				mmOutputStream = mmSocket.getOutputStream();
+//				// InputStream mmInputStream = mmSocket.getInputStream();
+//			}
+//			mmOutputStream.write("Olá Funcionei!!!".getBytes());
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		// beginListenForData();
 		// connState = true;
 		// myLabel.setText("Status: Bluetooth aberto");
