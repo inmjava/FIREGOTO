@@ -1,6 +1,7 @@
 package br.com.astronomoamador.firgoto;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class MainActivity extends Activity {
+	
+	private static final int MOSTRAR_STATUS = 0;
+	public static int CONFIGURAR_BLUETOOTH = 1;
+	private BluetoothDevice mmDevice;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +40,12 @@ public class MainActivity extends Activity {
 	}
 	
 	public void configurarBluetooth(View v){
-		startActivity(new Intent(this, ConfiguraBluetoothActivity.class));
+		startActivityForResult(new Intent(this, ConfiguraBluetoothActivity.class),MainActivity.CONFIGURAR_BLUETOOTH);
 	}
 	public void mostrarStatus(View v){
-		startActivity(new Intent(this, StatusActivity.class));
+		Intent abrirMostrarStatus = new Intent(this, StatusActivity.class);
+		abrirMostrarStatus.putExtra(BluetoothDevice.EXTRA_DEVICE, mmDevice);
+		startActivityForResult(abrirMostrarStatus,MainActivity.MOSTRAR_STATUS);
 	}
 	public void mostrarControle(View v){
 		startActivity(new Intent(this, MostrarControleActivity.class));
@@ -48,4 +55,11 @@ public class MainActivity extends Activity {
 		startActivity(new Intent(this, GotoSyncActivity.class));
 	}
 	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode==Activity.RESULT_OK) {
+			 mmDevice = data.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);	
+		}						
+	}
 }

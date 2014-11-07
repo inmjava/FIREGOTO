@@ -50,6 +50,7 @@ public class ConfiguraBluetoothActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_configura_bluetooth);
+		findDevices(null);
 	}
 
 	@Override
@@ -113,12 +114,17 @@ public class ConfiguraBluetoothActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				mmDevice = (BluetoothDevice) pairedDevices.toArray()[position];
-				try {
-					enviarInformacoes(null);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				Intent result = new Intent();
+				result.putExtra(BluetoothDevice.EXTRA_DEVICE, mmDevice);
+				setResult(RESULT_OK, result);
+				finish();
+				
+//				try {
+//					enviarInformacoes(null);
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 			}
 		});
 	}
