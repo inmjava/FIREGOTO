@@ -1,26 +1,41 @@
 package br.com.astronomoamador.firgoto;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import br.com.astronomoamador.firgoto.bluetooth.ConnectedThread;
+import br.com.astronomoamador.firgoto.bluetooth.Constants;
+
 import android.app.Activity;
+import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.InputType;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 
 public class GotoSyncActivity extends Activity {
 
+	///Variaveis Bluetooth
+	private BluetoothDevice mmDevice;
+	private ConnectedThread connectedThread;
+
+
 	////////variaveis geral
-	InputStream catalogue = null;
-	int filecatalogue=R.raw.cataloguemessier;
+	private InputStream catalogue = null;
+	private int filecatalogue=R.raw.cataloguemessier;
 	boolean StarFile=false;
 	boolean NorteSul=false;
 	private EditText txtlocalizaDSS;
@@ -32,6 +47,28 @@ public class GotoSyncActivity extends Activity {
 	private EditText txtDS;
 	private TextView txtvTextListaDss;
 	private ToggleButton toggleNorteSul;
+
+
+
+
+
+
+	private final Handler mHandler = new Handler() {
+	@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case Constants.MESSAGE_READ:
+				byte[] readBuf = (byte[]) msg.obj;
+				// construct a string from the valid bytes in the buffer
+				String readMessage = new String(readBuf, 0, msg.arg1);
+				txtvTextListaDss.setText(readMessage);
+				leResposta(readMessage);
+				break;
+			}
+		}
+	};
+
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +85,20 @@ public class GotoSyncActivity extends Activity {
 		txtvTextListaDss = (TextView) findViewById(R.id.textViewListaDss);
 		toggleNorteSul = (ToggleButton) findViewById(R.id.toggleButtonSinalAlvoDEC);
 		txtlocalizaDSS.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+		//Bluetooth
+		mmDevice = getIntent().getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+		if(mmDevice != null){
+			try {
+				connectedThread = new ConnectedThread(mmDevice, mHandler);
+				new Thread(connectedThread).start();
+				connectedThread.write("statusActivity".getBytes());
+			} catch (IOException e) {
+				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+				//					e.printStackTrace();
+			}
+		}
+
 	}
 
 	@Override
@@ -205,13 +256,13 @@ public class GotoSyncActivity extends Activity {
 							}
 
 						}
-						
+
 						if(Texto==null)
 						{
 							txtvTextListaDss.setText("not found");
 						}
-						
-						
+
+
 					}
 				}catch (Exception e) 
 				{
@@ -234,4 +285,28 @@ public class GotoSyncActivity extends Activity {
 
 	}
 
+
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		if ((keyCode == KeyEvent.KEYCODE_BACK))
+		{
+			if(mmDevice != null)
+
+			{
+				Intent result = new Intent();
+				result.putExtra(BluetoothDevice.EXTRA_DEVICE, mmDevice);
+				setResult(RESULT_OK, result);
+				connectedThread.finish();
+				finish();
+			}
+		}
+		return super.onKeyDown(keyCode, event);
+	}	
+
+
+
+	private void leResposta(String readMessage)
+	{
+		txtvTextListaDss.setText(readMessage);
+	}
 }

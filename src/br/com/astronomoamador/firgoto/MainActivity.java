@@ -11,6 +11,8 @@ import android.view.View;
 public class MainActivity extends Activity {
 	
 	private static final int MOSTRAR_STATUS = 0;
+	private static final int MOSTRAR_MOSTRAR_GOTO_SYNC = 0;
+	
 	public static int CONFIGURAR_BLUETOOTH = 1;
 	private BluetoothDevice mmDevice;
 
@@ -52,7 +54,10 @@ public class MainActivity extends Activity {
 	}
 
 	public void mostrarGotosync(View v){
-		startActivity(new Intent(this, GotoSyncActivity.class));
+		
+		Intent abrirMostrarGotosync = new Intent(this, GotoSyncActivity.class);
+		abrirMostrarGotosync.putExtra(BluetoothDevice.EXTRA_DEVICE, mmDevice);
+		startActivityForResult(abrirMostrarGotosync,MainActivity.MOSTRAR_MOSTRAR_GOTO_SYNC);
 	}
 	
 	@Override

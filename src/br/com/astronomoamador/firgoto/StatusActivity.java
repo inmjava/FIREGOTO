@@ -22,19 +22,19 @@ public class StatusActivity extends Activity {
 	private ConnectedThread connectedThread;
 	private EditText editTextGrauLat;
 	private final Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-            case Constants.MESSAGE_READ:
-                byte[] readBuf = (byte[]) msg.obj;
-                // construct a string from the valid bytes in the buffer
-                String readMessage = new String(readBuf, 0, msg.arg1);
-                editTextGrauLat.setText(editTextGrauLat.getText().toString() + readMessage);
-                break;
-            }
-        }
-    };
-	
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case Constants.MESSAGE_READ:
+				byte[] readBuf = (byte[]) msg.obj;
+				// construct a string from the valid bytes in the buffer
+				String readMessage = new String(readBuf, 0, msg.arg1);
+				editTextGrauLat.setText(editTextGrauLat.getText().toString() + readMessage);
+				break;
+			}
+		}
+	};
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,7 +48,7 @@ public class StatusActivity extends Activity {
 				connectedThread.write("statusActivity".getBytes());
 			} catch (IOException e) {
 				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-//					e.printStackTrace();
+				//					e.printStackTrace();
 			}
 		}
 	}
@@ -75,14 +75,18 @@ public class StatusActivity extends Activity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)
 	{
-	    if ((keyCode == KeyEvent.KEYCODE_BACK))
-	    {
-			Intent result = new Intent();
-			result.putExtra(BluetoothDevice.EXTRA_DEVICE, mmDevice);
-			setResult(RESULT_OK, result);
-			connectedThread.finish();
-	        finish();
-	    }
-	    return super.onKeyDown(keyCode, event);
+		if ((keyCode == KeyEvent.KEYCODE_BACK))
+		{
+			if(mmDevice != null)
+
+			{
+				Intent result = new Intent();
+				result.putExtra(BluetoothDevice.EXTRA_DEVICE, mmDevice);
+				setResult(RESULT_OK, result);
+				connectedThread.finish();
+				finish();
+			}
+		}
+		return super.onKeyDown(keyCode, event);
 	}	
 }
