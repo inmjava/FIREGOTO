@@ -6,9 +6,11 @@ import br.com.astronomoamador.firgoto.bluetooth.ConnectedThread;
 import br.com.astronomoamador.firgoto.bluetooth.Constants;
 import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -69,4 +71,18 @@ public class StatusActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+	    if ((keyCode == KeyEvent.KEYCODE_BACK))
+	    {
+			Intent result = new Intent();
+			result.putExtra(BluetoothDevice.EXTRA_DEVICE, mmDevice);
+			setResult(RESULT_OK, result);
+			connectedThread.finish();
+	        finish();
+	    }
+	    return super.onKeyDown(keyCode, event);
+	}	
 }

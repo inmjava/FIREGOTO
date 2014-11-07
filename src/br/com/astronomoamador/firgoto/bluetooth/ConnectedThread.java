@@ -14,6 +14,7 @@ public class ConnectedThread extends Thread {
     private InputStream mmInStream;
     private OutputStream mmOutStream;
 	private Handler mHandler;
+	private boolean finished = false;
  
     public ConnectedThread(BluetoothDevice device, Handler handler) throws IOException {
     	UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); // Standard
@@ -41,7 +42,7 @@ public class ConnectedThread extends Thread {
         int bytes; // bytes returned from read()
  
         // Keep listening to the InputStream until an exception occurs
-        while (true) {
+        while (!finished) {
             try {
                 // Read from the InputStream
                 bytes = mmInStream.read(buffer);
@@ -61,9 +62,10 @@ public class ConnectedThread extends Thread {
     }
  
     /* Call this from the main activity to shutdown the connection */
-    public void cancel() {
+    public void finish() {
         try {
             mmSocket.close();
+            finished = true;
         } catch (IOException e) { }
     }
 
