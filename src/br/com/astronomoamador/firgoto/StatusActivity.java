@@ -1,18 +1,54 @@
 package br.com.astronomoamador.firgoto;
 
+import java.io.IOException;
+
+import br.com.astronomoamador.firgoto.bluetooth.ConnectedThread;
+import br.com.astronomoamador.firgoto.bluetooth.Constants;
 import android.app.Activity;
+import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class StatusActivity extends Activity {
 
+	private BluetoothDevice mmDevice;
+	private ConnectedThread connectedThread;
+	private EditText editTextGrauLat;
+	private final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+            case Constants.MESSAGE_READ:
+                byte[] readBuf = (byte[]) msg.obj;
+                // construct a string from the valid bytes in the buffer
+                String readMessage = new String(readBuf, 0, msg.arg1);
+                editTextGrauLat.setText(editTextGrauLat.getText().toString() + readMessage);
+                break;
+            }
+        }
+    };
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.activity_status);
-		
+		editTextGrauLat = (EditText) findViewById(R.id.editTextGrauLat);
+		mmDevice = getIntent().getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+		if(mmDevice != null){
+			try {
+				connectedThread = new ConnectedThread(mmDevice, mHandler);
+				new Thread(connectedThread).start();
+				connectedThread.write("statusActivity".getBytes());
+			} catch (IOException e) {
+				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+//					e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
