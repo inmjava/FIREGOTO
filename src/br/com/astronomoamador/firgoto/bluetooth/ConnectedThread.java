@@ -42,7 +42,7 @@ public class ConnectedThread extends Thread {
         int bytes; // bytes returned from read()
  
         // Keep listening to the InputStream until an exception occurs
-        while (!finished) {
+        while (!isFinished()) {
             try {
                 // Read from the InputStream
                 bytes = mmInStream.read(buffer);
@@ -65,8 +65,16 @@ public class ConnectedThread extends Thread {
     public void finish() {
         try {
             mmSocket.close();
-            finished = true;
+            setFinished(true);
         } catch (IOException e) { }
     }
+
+	public boolean isFinished() {
+		return finished;
+	}
+
+	public void setFinished(boolean finished) {
+		this.finished = finished;
+	}
 
 }

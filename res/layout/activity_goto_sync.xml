@@ -338,7 +338,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/ok" />
+            android:text="@string/ok"
+            android:onClick="GotoSync" />
     </LinearLayout>
 
     <LinearLayout
@@ -427,6 +428,15 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="@dimen/medio" />
 
+    
+      <TextView
+        android:id="@+id/textViewCommand"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="@dimen/medio" />
+    
+    
           </LinearLayout>
     </ScrollView>
     
