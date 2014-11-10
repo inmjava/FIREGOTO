@@ -15,38 +15,48 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class StatusActivity extends Activity {
 
 	private BluetoothDevice mmDevice;
 	private ConnectedThread connectedThread;
 
+	private ToggleButton toggleNorteSulLat;
 	private EditText editTextGrauLat;
 	private EditText editTextMinLat;
-	private EditText editTextSegLat;
 
+	private ToggleButton toggleLestOestLog;
 	private EditText editTextGrauLog;
 	private EditText editTextMinLog;
-	private EditText editTextSegLog;
 
 	private EditText editTextHoraTime;
 	private EditText editTextMinTime;
 	private EditText editTextSegTime;
 
+	private ToggleButton toggleUTC;
 	private EditText editTextUTCSet;
+	private int UTC = 0;
 
-	private EditText editTextHoraUTC;
-	private EditText editTextMinUTC;
-	private EditText editTextSegUTC;
+	private TextView TextHoraUTC;
+	private TextView TextMinUTC;
+	private TextView TextSegUTC;
 
-	private EditText editTextHoraLST;
-	private EditText editTextMinLST;
-	private EditText editTextSegLST;
+	private TextView TextHoraLST;
+	private TextView TextMinLST;
+	private TextView TextSegLST;
 
+	private EditText editTextDia;
+	private EditText editTextMes;
+	private EditText editTextAno;
 
 	private String bufferCmd = "";
+	private String command[] = {":Gt#",":Gg#",":GG#",":GL#",":GS#",":GC#"};
 	private String commandAtual = null;
+	private int icom = 0;
+
 
 
 	private final Handler mHandler = new Handler() {
@@ -79,29 +89,32 @@ public class StatusActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_status);
 
+		toggleNorteSulLat = (ToggleButton) findViewById(R.id.toggleButtonLat);
 		editTextGrauLat = (EditText) findViewById(R.id.editTextGrauLat);
 		editTextMinLat = (EditText) findViewById(R.id.editTextMinLat);
-		editTextSegLat = (EditText) findViewById(R.id.editTextSegLat);
 
+		toggleLestOestLog = (ToggleButton) findViewById(R.id.ToggleButtonLog);
 		editTextGrauLog = (EditText) findViewById(R.id.editTextGrauLog);
 		editTextMinLog = (EditText) findViewById(R.id.editTextMinLog);
-		editTextSegLog = (EditText) findViewById(R.id.editTextSegLog);
 
 		editTextHoraTime = (EditText) findViewById(R.id.editTextHoraTime);
 		editTextMinTime = (EditText) findViewById(R.id.editTextMinTime);
 		editTextSegTime = (EditText) findViewById(R.id.editTextSegTime);
 
+		toggleUTC = (ToggleButton) findViewById(R.id.ToggleButtonUTC);
 		editTextUTCSet = (EditText) findViewById(R.id.editTextUTCSet);
 
-		editTextHoraUTC = (EditText) findViewById(R.id.editTextHoraUTC);
-		editTextMinUTC = (EditText) findViewById(R.id.editTextMinUTC);
-		editTextSegUTC = (EditText) findViewById(R.id.editTextSegUTC);
+		TextHoraUTC = (TextView) findViewById(R.id.TextHoraUTC);
+		TextMinUTC = (TextView) findViewById(R.id.TextMinUTC);
+		TextSegUTC = (TextView) findViewById(R.id.TextSegUTC);
 
-		editTextHoraLST = (EditText) findViewById(R.id.editTextHoraLST);
-		editTextMinLST = (EditText) findViewById(R.id.editTextMinLST);
-		editTextSegLST = (EditText) findViewById(R.id.editTextSegLST);
+		TextHoraLST = (TextView) findViewById(R.id.TextHoraLST);
+		TextMinLST = (TextView) findViewById(R.id.TextMinLST);
+		TextSegLST = (TextView) findViewById(R.id.TextSegLST);
 
-
+		editTextDia = (EditText) findViewById(R.id.editTextDia);
+		editTextMes = (EditText) findViewById(R.id.editTextMes);
+		editTextAno = (EditText) findViewById(R.id.editTextAno);
 
 
 
@@ -111,7 +124,7 @@ public class StatusActivity extends Activity {
 			try {
 				connectedThread = new ConnectedThread(mmDevice, mHandler);
 				new Thread(connectedThread).start();
-				mandacommand();
+				MandaComando();
 			} catch (IOException e) {
 				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
 				//					e.printStackTrace();
@@ -119,31 +132,59 @@ public class StatusActivity extends Activity {
 		}
 	}
 
-	void mandacommand()
-	{ 
-		try {
-			commandAtual=":Gt#";
-			connectedThread.write(commandAtual.getBytes());
-			Thread.sleep(250);
-			commandAtual=":Gg#";
-			connectedThread.write(commandAtual.getBytes());
-			Thread.sleep(250);
-			commandAtual=":GG#";
-			connectedThread.write(commandAtual.getBytes());
-			Thread.sleep(250);
-			commandAtual=":GL#";
-			connectedThread.write(commandAtual.getBytes());
-			Thread.sleep(250);
-			commandAtual=":GS#";
-			connectedThread.write(commandAtual.getBytes());
-			Thread.sleep(250);
 
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+	private void MandaComando()
+	{
+
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				while (!connectedThread.isFinished()) {
+					try {
+						connectedThread.write(command[icom].getBytes());
+						commandAtual=command[icom];
+						if (icom == 0)
+						{
+							command[0]="";
+						}
+						if (icom == 1)
+						{
+							command[1]="";
+						}
+						if (icom == 2)
+						{
+							command[2]="";
+						}
+						if (icom == 3)
+						{
+							command[3]="";
+						}
+						if (icom == 4)
+						{
+							command[4]="";
+						}
+						if (icom == 5)
+						{
+							command[5]="";
+						}
+						icom++;
+						if (icom > 5)
+						{
+							icom=0;
+						}
+						Thread.sleep(250);
+
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+			}
+		}).start();
 
 	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -185,40 +226,92 @@ public class StatusActivity extends Activity {
 
 	private void leResposta(String readMessage)
 	{
+		int tmphh=0;
+		String strtemp;
 		if (":Gt#".equals(commandAtual)) {
-		editTextGrauLat.setText(readMessage.subSequence(0, 2));
-		editTextMinLat.setText(readMessage.subSequence(3, 5));
-		editTextSegLat.setText(readMessage.subSequence(6, 8));
+			strtemp=readMessage.subSequence(0, 1).toString();
+			if ( strtemp.equalsIgnoreCase("-"))
+			{
+				toggleLestOestLog.setChecked(false);
+			}
+			else
+			{
+				toggleLestOestLog.setChecked(true);
+			}
+
+			editTextGrauLat.setText(readMessage.subSequence(1, 3));
+			editTextMinLat.setText(readMessage.subSequence(4, 6));
 		}
 		if (":Gg#".equals(commandAtual)) {
-		editTextGrauLog.setText(readMessage.subSequence(0, 2));
-		editTextMinLog.setText(readMessage.subSequence(3, 5));
-		editTextSegLog.setText(readMessage.subSequence(6, 8));
-		}
-		if (":GLGL#".equals(commandAtual)) {
-		editTextHoraTime.setText(readMessage.subSequence(0, 2));
-		editTextMinTime.setText(readMessage.subSequence(3, 5));
-		editTextSegTime.setText(readMessage.subSequence(6, 8));
-		}
-		if (":GG#".equals(commandAtual)) {
-		editTextUTCSet.setText(readMessage.subSequence(0, 2));
+			strtemp=readMessage.subSequence(0, 1).toString();
+			if ( strtemp.equalsIgnoreCase("-"))
+			{
+				toggleNorteSulLat.setChecked(true);
+			}
+			else
+			{
+				toggleNorteSulLat.setChecked(false);
+			}
+			editTextGrauLog.setText(readMessage.subSequence(1, 3));
+			editTextMinLog.setText(readMessage.subSequence(4, 6));
 		}
 		if (":GL#".equals(commandAtual)) {
-		editTextHoraUTC.setText(readMessage.subSequence(0, 2));
-		editTextMinUTC.setText(readMessage.subSequence(3, 5));
-		editTextSegUTC.setText(readMessage.subSequence(6, 8));
+			tmphh=Integer.parseInt(readMessage.subSequence(0, 2).toString());
+			editTextHoraTime.setText(readMessage.subSequence(0, 2));
+			editTextMinTime.setText(readMessage.subSequence(3, 5));
+			editTextSegTime.setText(readMessage.subSequence(6, 8));
+		}
+		if (":GG#".equals(commandAtual)) {
+			editTextUTCSet.setText(String.valueOf(readMessage.subSequence(1, 3)));
+			strtemp=readMessage.subSequence(0, 1).toString();
+			if ( strtemp.equalsIgnoreCase("-"))
+			{
+				toggleUTC.setChecked(true);
+			}
+			else
+			{
+				toggleUTC.setChecked(false);
+			}
+			strtemp=readMessage.subSequence(0, 3).toString();
+			UTC=Integer.parseInt(strtemp);
+
+		}
+		if (":GL#".equals(commandAtual)) {
+			tmphh=tmphh+UTC;
+			if (tmphh > 23)
+			{
+				tmphh=tmphh-24;
+			}
+			if (tmphh < 0)
+			{
+				tmphh=tmphh+24;
+			}
+			TextHoraUTC.setText(String.valueOf(tmphh));
+			TextMinUTC.setText(readMessage.subSequence(3, 5));
+			TextSegUTC.setText(readMessage.subSequence(6, 8));
 		}
 		if (":GS#".equals(commandAtual)) {
-		editTextHoraLST.setText(readMessage.subSequence(0, 2));
-		editTextMinLST.setText(readMessage.subSequence(3, 5));
-		editTextSegLST.setText(readMessage.subSequence(6, 8));
+			TextHoraLST.setText(readMessage.subSequence(0, 2));
+			TextMinLST.setText(readMessage.subSequence(3, 5));
+			TextSegLST.setText(readMessage.subSequence(6, 8));
+		}
+		if (":GC#".equals(commandAtual)) {
+			editTextMes.setText(readMessage.subSequence(0, 2));
+			editTextDia.setText(readMessage.subSequence(3, 5));
+			editTextAno.setText(readMessage.subSequence(6, 8));
 		}
 
 	}
 
 	public void atualizar(View v){
-		mandacommand();
+		command[0] = ":Gt#";
+		command[1] = ":Gg#";
+		command[2] = ":GG#";
+		command[3] = ":GL#";
+		command[4] = ":GS#";
+		command[5] = ":GC#";
+		icom=0;
 	}
-	
+
 
 }

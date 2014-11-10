@@ -23,11 +23,13 @@
     <string name="RA">RA:</string>
     <string name="DEC">DEC:</string>
     <string name="hora">LMT:</string>
+    <string name="data">Data:</string>
     <string name="UTC">UTC:</string>
     <string name="LST">LST:</string>
     <string name="doispontos">:</string>
     <string name="Aspasduplas">\"</string>
     <string name="Aspa">\'</string>
+    <string name="barra">"/"</string>
     <string name="Grau">°</string>
     <string name="Mais">+</string>
     <string name="Menos">-</string>
@@ -53,8 +55,7 @@
     <string name="localizar">L</string>
     <string name="selecione_a_velociadade_">Selecione a velociadade:</string>
     <string name="coordenada_atual_">Coordenada atual:</string>
-        <string name="coordenada_alvo_">Coordenada alvo:</string>
-    
+    <string name="coordenada_alvo_">Coordenada alvo:</string>
     <string name="antes_de_continuar_configure_seu_bluetooth">Antes de continuar configure seu bluetooth</string>
     <string name="este_dispositivo_n_suporta_bluetooth">Este dispositivo não suporta bluetooth</string>
     <string name="az">AZ</string>

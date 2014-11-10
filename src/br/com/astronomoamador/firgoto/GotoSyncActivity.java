@@ -29,8 +29,9 @@ public class GotoSyncActivity extends Activity {
 	private String command[] = {":GD#",":GR#",":GD#",":GR#",":GD#",":GR#"};
 	private String commandAtual = null;
 	private String bufferCmd = "";
-
 	private int icom = 0;
+
+
 	private InputStream catalogue = null;
 	private int filecatalogue=R.raw.cataloguemessier;
 	private boolean StarFile=false;

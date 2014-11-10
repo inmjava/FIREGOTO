@@ -74,22 +74,6 @@
             android:text="@string/Aspa"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/editTextSegLat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
-
-        <TextView
-            android:id="@+id/textSegLat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Aspasduplas"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
         <CheckBox
             android:id="@+id/checkBoxLat"
             android:layout_width="wrap_content"
@@ -149,22 +133,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Aspa"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/editTextSegLog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
-
-        <TextView
-            android:id="@+id/textSegLog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Aspasduplas"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <CheckBox
@@ -234,6 +202,70 @@
             android:layout_weight="1" />
     </LinearLayout>
 
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:text="@string/data"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/Grande" />
+
+        <EditText
+            android:id="@+id/editTextDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/barra"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/barra"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTextAno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:inputType="number" >
+        </EditText>
+
+        <CheckBox
+            android:id="@+id/CheckBoxAno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+    
+    
+    
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -283,45 +315,41 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/Grande" />
 
-        <EditText
-            android:id="@+id/editTextHoraUTC"
+        <TextView
+            android:id="@+id/TextHoraUTC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
+            android:layout_weight="100" 
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
 
         <TextView
-            android:id="@+id/textHoraUTC"
+            android:id="@+id/textHoraUTC1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/doispontos"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/editTextMinUTC"
+        <TextView
+            android:id="@+id/TextMinUTC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
+            android:layout_weight="100" />
 
         <TextView
-            android:id="@+id/textMinUTC"
+            android:id="@+id/textMinUTC1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/doispontos"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/editTextSegUTC"
+        <TextView
+            android:id="@+id/TextSegUTC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
+            android:layout_weight="100" />
     </LinearLayout>
 
     <LinearLayout
@@ -337,45 +365,47 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="@dimen/Grande" />
 
-        <EditText
-            android:id="@+id/editTextHoraLST"
+        <TextView
+            android:id="@+id/TextHoraLST"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+            
+            android:layout_weight="100"/>
 
         <TextView
-            android:id="@+id/textHoraLST"
+            android:id="@+id/textHoraLST1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/doispontos"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/editTextMinLST"
+        <TextView
+            android:id="@+id/TextMinLST"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+            
+            android:layout_weight="100" />
+
 
         <TextView
-            android:id="@+id/textMinLST"
+            android:id="@+id/textMinLST1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/doispontos"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/editTextSegLST"
+        <TextView
+            android:id="@+id/TextSegLST"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
+                                    android:textAppearance="?android:attr/textAppearanceLarge"
+            
+            android:layout_weight="100" />
+
     </LinearLayout>
 
     <Button
