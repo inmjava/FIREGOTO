@@ -382,7 +382,9 @@
         android:id="@+id/buttonUpdateStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/atualizar" />
+        android:text="@string/atualizar" 
+            android:onClick="atualizar" />
+
 
 </LinearLayout>
         
