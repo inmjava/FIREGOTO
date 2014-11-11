@@ -136,7 +136,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <CheckBox
-            android:id="@+id/CheckBox01"
+            android:id="@+id/CheckBoxLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -196,7 +196,7 @@
         </EditText>
 
         <CheckBox
-            android:id="@+id/CheckBox02"
+            android:id="@+id/CheckBoxTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -257,7 +257,7 @@
         </EditText>
 
         <CheckBox
-            android:id="@+id/CheckBoxAno"
+            android:id="@+id/CheckBoxData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />

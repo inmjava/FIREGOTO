@@ -71,5 +71,7 @@
     <string name="acompanhamento">Acompanhamento</string>
     <string name="localizar_deep">"Procurar Obj:"</string>
     <string name="find_devices">Find Devices</string>
+    <string name="title_activity_creditos_active">Creditos</string>
+    <string name="Creditos">About</string>
 
 </resources>

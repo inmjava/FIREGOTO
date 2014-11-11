@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+import android.widget.CheckBox;
+
 
 public class StatusActivity extends Activity {
 
@@ -27,18 +29,25 @@ public class StatusActivity extends Activity {
 	private ToggleButton toggleNorteSulLat;
 	private EditText editTextGrauLat;
 	private EditText editTextMinLat;
+	private CheckBox CheckLat;
 
 	private ToggleButton toggleLestOestLog;
 	private EditText editTextGrauLog;
 	private EditText editTextMinLog;
+	private CheckBox CheckLog;
+
 
 	private EditText editTextHoraTime;
 	private EditText editTextMinTime;
 	private EditText editTextSegTime;
+	private CheckBox CheckTime;
+
 
 	private ToggleButton toggleUTC;
 	private EditText editTextUTCSet;
 	private int UTC = 0;
+	private CheckBox CheckUTC;
+
 
 	private TextView TextHoraUTC;
 	private TextView TextMinUTC;
@@ -51,6 +60,8 @@ public class StatusActivity extends Activity {
 	private EditText editTextDia;
 	private EditText editTextMes;
 	private EditText editTextAno;
+	private CheckBox CheckData;
+
 
 	private String bufferCmd = "";
 	private String command[] = {":Gt#",":Gg#",":GG#",":GL#",":GS#",":GC#"};
@@ -92,17 +103,24 @@ public class StatusActivity extends Activity {
 		toggleNorteSulLat = (ToggleButton) findViewById(R.id.toggleButtonLat);
 		editTextGrauLat = (EditText) findViewById(R.id.editTextGrauLat);
 		editTextMinLat = (EditText) findViewById(R.id.editTextMinLat);
+		CheckLat = (CheckBox) findViewById(R.id.checkBoxLat);
 
 		toggleLestOestLog = (ToggleButton) findViewById(R.id.ToggleButtonLog);
 		editTextGrauLog = (EditText) findViewById(R.id.editTextGrauLog);
 		editTextMinLog = (EditText) findViewById(R.id.editTextMinLog);
+		CheckLog = (CheckBox) findViewById(R.id.CheckBoxLog);
+
 
 		editTextHoraTime = (EditText) findViewById(R.id.editTextHoraTime);
 		editTextMinTime = (EditText) findViewById(R.id.editTextMinTime);
 		editTextSegTime = (EditText) findViewById(R.id.editTextSegTime);
+		CheckTime = (CheckBox) findViewById(R.id.CheckBoxTime);
+
 
 		toggleUTC = (ToggleButton) findViewById(R.id.ToggleButtonUTC);
 		editTextUTCSet = (EditText) findViewById(R.id.editTextUTCSet);
+		CheckUTC = (CheckBox) findViewById(R.id.CheckBoxUTC);
+
 
 		TextHoraUTC = (TextView) findViewById(R.id.TextHoraUTC);
 		TextMinUTC = (TextView) findViewById(R.id.TextMinUTC);
@@ -115,6 +133,8 @@ public class StatusActivity extends Activity {
 		editTextDia = (EditText) findViewById(R.id.editTextDia);
 		editTextMes = (EditText) findViewById(R.id.editTextMes);
 		editTextAno = (EditText) findViewById(R.id.editTextAno);
+		CheckData = (CheckBox) findViewById(R.id.CheckBoxData);
+
 
 
 
@@ -252,8 +272,8 @@ public class StatusActivity extends Activity {
 			{
 				toggleNorteSulLat.setChecked(false);
 			}
-			editTextGrauLog.setText(readMessage.subSequence(1, 3));
-			editTextMinLog.setText(readMessage.subSequence(4, 6));
+			editTextGrauLog.setText(readMessage.subSequence(1, 4));
+			editTextMinLog.setText(readMessage.subSequence(5, 7));
 		}
 		if (":GL#".equals(commandAtual)) {
 			tmphh=Integer.parseInt(readMessage.subSequence(0, 2).toString());
@@ -304,14 +324,64 @@ public class StatusActivity extends Activity {
 	}
 
 	public void atualizar(View v){
-		command[0] = ":Gt#";
-		command[1] = ":Gg#";
+
+		String strtmp;
+		int i;
+		if (CheckLat.isChecked())
+		{
+			
+			if (!toggleNorteSulLat.isChecked())
+			{
+				strtmp=":St+";
+			}
+			else
+			{
+				strtmp=":St-";
+			}
+			i=Integer.parseInt(editTextGrauLat.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+"*";
+			i=Integer.parseInt(editTextMinLat.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+"#";
+			command[0] = strtmp;
+			CheckLat.setChecked(false);
+		}
+		else
+		{
+			command[0] = ":Gt#";
+		}
+		
+		if (CheckLog.isChecked())
+		{
+			//:SgDDD*MM# 
+			if (!toggleLestOestLog.isChecked())
+			{
+				strtmp=":Sg+";
+			}
+			else
+			{
+				strtmp=":Sg-";
+			}
+			i=Integer.parseInt(editTextGrauLog.getText().toString());
+			strtmp = strtmp + String.format("%03d", i)+"*";
+			i=Integer.parseInt(editTextMinLog.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+"#";
+			command[1] = strtmp;
+			CheckLog.setChecked(false);
+		}
+		else
+		{
+			command[1] = ":Gg#";
+		}
+		
+		
+		
+		
 		command[2] = ":GG#";
 		command[3] = ":GL#";
 		command[4] = ":GS#";
 		command[5] = ":GC#";
 		icom=0;
+		
 	}
-
 
 }

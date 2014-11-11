@@ -67,4 +67,7 @@ public class MainActivity extends Activity {
 			 mmDevice = data.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);	
 		}						
 	}
+	public void mostrarCredito(View v){
+		startActivity(new Intent(this, CreditosActive.class));
+	}
 }

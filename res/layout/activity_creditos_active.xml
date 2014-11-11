@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="br.com.astronomoamador.firgoto.CreditosActive" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sobre FIREGOTO
+        Programa para controlar Telescopio usando LX200" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="
+        Projeto baseado (eu quero!!!) no ONSTEP
+        http://www.stellarjourney.com/index.php?r=site/equipment_onstep" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="
+        Obrigado
+        Filó, Ivan, Reginaldo (eu), Ericson" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="
+        Catalogos:
+        http://www.atlasoftheuniverse.com/stars.html      
+        http://www.klima-luft.de/steinicke/ngcic/rev2000/Explan.htm        
+        https://www.astroleague.org/al/obsclubs/caldwell/cldwlist.html        
+        http://www.ceaal.al.org.br/pesquisa/catalogo-bca" />
+
+</LinearLayout>
