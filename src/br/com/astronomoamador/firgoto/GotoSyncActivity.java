@@ -359,7 +359,7 @@ public class GotoSyncActivity extends Activity {
 					try {
 						connectedThread.write(command[icom].getBytes());
 						commandAtual=command[icom];
-						Thread.sleep(1500);
+						Thread.sleep(400);
 						if (icom == 0)
 						{
 							command[0]=":GD#";

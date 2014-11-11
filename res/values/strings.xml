@@ -23,7 +23,7 @@
     <string name="RA">RA:</string>
     <string name="DEC">DEC:</string>
     <string name="hora">LMT:</string>
-    <string name="data">Data:</string>
+    <string name="data">Data UTC:</string>
     <string name="UTC">UTC:</string>
     <string name="LST">LST:</string>
     <string name="doispontos">:</string>
@@ -75,5 +75,7 @@
     <string name="Creditos">About</string>
     <string name="vamos_la">Vamos la</string>
     <string name="abaixo_do_horizonte">Abaixo do Horizonte</string>
+    <string name="atualizado">Atualizado</string>
+    <string name="deu_erro">Deu Erro</string>
 
 </resources>

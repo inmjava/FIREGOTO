@@ -25,8 +25,8 @@ public class StatusActivity extends Activity {
 
 	private BluetoothDevice mmDevice;
 	private ConnectedThread connectedThread;
-	
-	
+
+
 
 	private ToggleButton toggleNorteSulLat;
 	private EditText editTextGrauLat;
@@ -81,15 +81,15 @@ public class StatusActivity extends Activity {
 				byte[] readBuf = (byte[]) msg.obj;
 				// construct a string from the valid bytes in the buffer
 				String readMessage = new String(readBuf, 0, msg.arg1);
-				if (!readMessage.contains(response[icom]))
-				{
+				if (readMessage.contains(response[icom]) || response[icom].contains(readMessage))				{
 					bufferCmd=bufferCmd+readMessage;	
+					leResposta(bufferCmd);
+					bufferCmd="";
 				}
 				else
 				{
 					bufferCmd=bufferCmd+readMessage;
-					leResposta(bufferCmd);
-					bufferCmd="";
+
 				}
 				readBuf=null;
 				readMessage=null;
@@ -167,6 +167,8 @@ public class StatusActivity extends Activity {
 					try {
 						connectedThread.write(command[icom].getBytes());
 						commandAtual=command[icom];
+						Thread.sleep(1250);
+
 						if (icom == 0)
 						{
 							command[0]="";
@@ -196,7 +198,6 @@ public class StatusActivity extends Activity {
 						{
 							icom=0;
 						}
-						Thread.sleep(250);
 
 					} catch (InterruptedException e) {
 						e.printStackTrace();
@@ -323,6 +324,15 @@ public class StatusActivity extends Activity {
 			editTextDia.setText(readMessage.subSequence(3, 5));
 			editTextAno.setText(readMessage.subSequence(6, 8));
 		}
+		if (commandAtual.contains(":St"))
+			if (readMessage.equalsIgnoreCase("0"))
+			{
+				Toast.makeText(getApplicationContext(),  R.string.atualizado, Toast.LENGTH_LONG).show();
+			}
+			else
+			{
+				Toast.makeText(getApplicationContext(),  R.string.deu_erro, Toast.LENGTH_LONG).show();
+			}
 
 	}
 
@@ -332,7 +342,7 @@ public class StatusActivity extends Activity {
 		int i;
 		if (CheckLat.isChecked())
 		{
-			
+
 			if (!toggleNorteSulLat.isChecked())
 			{
 				strtmp=":St+";
@@ -346,14 +356,14 @@ public class StatusActivity extends Activity {
 			i=Integer.parseInt(editTextMinLat.getText().toString());
 			strtmp = strtmp + String.format("%02d", i)+"#";
 			command[0] = strtmp;
-			
+			response[0] = "0123456789";
 			CheckLat.setChecked(false);
 		}
 		else
 		{
 			command[0] = ":Gt#";
 		}
-		
+
 		if (CheckLog.isChecked())
 		{
 			//:SgDDD*MM# 
@@ -376,17 +386,107 @@ public class StatusActivity extends Activity {
 		else
 		{
 			command[1] = ":Gg#";
+			response[1] = "#";
+
 		}
+
+
+
+
+		/*:SLHH:MM:SS# 
+Set the local Time 
+Returns: 
+0 – Invalid */
+
+		if (CheckTime.isChecked())
+		{
+			//:SLHH:MM:SS# 
+			strtmp=":SL";
+			i=Integer.parseInt(editTextHoraTime.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+":";
+			i=Integer.parseInt(editTextMinTime.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+":";
+			i=Integer.parseInt(editTextSegTime.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+"#";
+			command[3] = strtmp;
+			response[3] = "0123456789";
+			CheckTime.setChecked(false);
+		}
+		else
+		{
+			command[3] = ":GL#";
+			response[3] = "#";
+
+		}
+
+
+		/* :SGsHH.H# 
+Set the number of hours added to local time to yield UTC 
+Returns: 
+0 – Invalid 
+1 - Valid  */
 		
+		if (CheckUTC.isChecked())
+		{
+			//:SGsHH# 
+			if (!toggleUTC.isChecked())
+			{
+				strtmp=":SG+";
+			}
+			else
+			{
+				strtmp=":SG-";
+			}
+			i=Integer.parseInt(editTextUTCSet.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+"#";
+			command[2] = strtmp;
+			response[2] = "0123456789";
+			CheckUTC.setChecked(false);
+		}
+		else
+		{
 		
-		
-		
+
 		command[2] = ":GG#";
-		command[3] = ":GL#";
+		response[2] = "#";
+		}
+
+
 		command[4] = ":GS#";
-		command[5] = ":GC#";
-		icom=0;
+		response[4] = "#";
 		
+		/*:SCMM/DD/YY# 
+ Change Handbox Date to MM/DD/YY 
+ Returns: <D><string> 
+ D = ‘0’ if the date is invalid. The string is the null string. 
+ D = ‘1’ for valid dates and the string is “Updating Planetary Data# #” 
+ Note: For LX200GPS this is the UTC data! */
+		
+		if (CheckData.isChecked())
+		{
+			//::SCMM/DD/YY# 
+			strtmp=":SC";
+			i=Integer.parseInt(editTextMes.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+"/";
+			i=Integer.parseInt(editTextDia.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+"/";
+			i=Integer.parseInt(editTextAno.getText().toString());
+			strtmp = strtmp + String.format("%02d", i)+"#";
+			command[5] = strtmp;
+			response[5] = "0123456789";
+			CheckData.setChecked(false);
+		}
+		else
+		{
+			command[5] = ":GC#";
+			response[5] = "#";
+
+		}
+
+
+
+		icom=0;
+
 	}
 
 }
