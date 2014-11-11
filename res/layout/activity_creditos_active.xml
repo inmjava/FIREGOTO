@@ -13,31 +13,68 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sobre FIREGOTO
-        Programa para controlar Telescopio usando LX200" />
+        android:layout_gravity="center"
+        android:text="Sobre FIREGOTO " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text=" Programa para controlar Telescopio usando LX200" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text=" Projeto baseado (eu quero!!!) no ONSTEP " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text=" http://www.stellarjourney.com/index.php?r=site/equipment_onstep" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="
-        Projeto baseado (eu quero!!!) no ONSTEP
-        http://www.stellarjourney.com/index.php?r=site/equipment_onstep" />
+        android:layout_gravity="center"
+        android:text=" Obrigado " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text=" Filó, Ivan, Reginaldo (eu), Ericson" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="
-        Obrigado
-        Filó, Ivan, Reginaldo (eu), Ericson" />
+        android:layout_gravity="center"
+        android:text=" Catalogos: " />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="
-        Catalogos:
-        http://www.atlasoftheuniverse.com/stars.html      
-        http://www.klima-luft.de/steinicke/ngcic/rev2000/Explan.htm        
-        https://www.astroleague.org/al/obsclubs/caldwell/cldwlist.html        
-        http://www.ceaal.al.org.br/pesquisa/catalogo-bca" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text=" http://www.atlasoftheuniverse.com/stars.html " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text=" http://www.klima-luft.de/steinicke/ngcic/rev2000/Explan.htm " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text=" https://www.astroleague.org/al/obsclubs/caldwell/cldwlist.html " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text=" http://www.ceaal.al.org.br/pesquisa/catalogo-bca" />
 
 </LinearLayout>
