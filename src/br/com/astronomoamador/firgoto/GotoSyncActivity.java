@@ -27,6 +27,7 @@ public class GotoSyncActivity extends Activity {
 	private ConnectedThread connectedThread;
 	////////variaveis geral
 	private String command[] = {":GD#",":GR#",":GD#",":GR#",":GD#",":GR#"};
+	private String response[] = {"#","#","#","#","#","#"};
 	private String commandAtual = null;
 	private String bufferCmd = "";
 	private int icom = 0;
@@ -60,16 +61,18 @@ public class GotoSyncActivity extends Activity {
 				byte[] readBuf = (byte[]) msg.obj;
 				// construct a string from the valid bytes in the buffer
 				String readMessage = new String(readBuf, 0, msg.arg1);
-				if (!readMessage.contains("#"))
-					{
-						bufferCmd=bufferCmd+readMessage;	
-					}
-					else
-					{
-						bufferCmd=bufferCmd+readMessage;
-						leResposta(bufferCmd);
-						bufferCmd="";
-					}
+				if (readMessage.contains(response[icom]) || response[icom].contains(readMessage))
+				{
+					bufferCmd=bufferCmd+readMessage;	
+					leResposta(bufferCmd);
+					String tmp = bufferCmd;
+					bufferCmd="";
+
+				}
+				else
+				{
+					bufferCmd=bufferCmd+readMessage;
+				}
 				readBuf=null;
 				readMessage=null;
 				break;
@@ -132,25 +135,48 @@ public class GotoSyncActivity extends Activity {
 	}
 	public void GotoSync(View view) {
 		icom=0;
-
+		int i = 0;
 		//SrHH:MM:SS# *
-		command[1]="Sr"+txtaRAH.getText().toString() +":"+ txtaRAM.getText().toString() +":"+ txtaRAS.getText().toString()+"#"; 
+		command[1]="Sr";
+		i=Integer.parseInt(txtaRAH.getText().toString());
+		command[1]=command[1]+String.format("%02d", i)+":";
+		i=Integer.parseInt(txtaRAM.getText().toString());
+		command[1]=command[1]+String.format("%02d", i)+":";
+		i=(int)Float.parseFloat(txtaRAS.getText().toString());
+		command[1]=command[1]+String.format("%02d", i)+"#";
 		//SdsDD:MM:SS# *
 		if (toggleNorteSul.isChecked())
 		{
-			command[2]="Sd+"+txtaDG.getText().toString() +":"+ txtaDM.getText().toString() +":"+ txtaDS.getText().toString()+"#";
+			command[2]="Sd+";
+			i=Integer.parseInt(txtaDG.getText().toString());
+			command[2]=command[2]+String.format("%02d", i)+":";
+			i=Integer.parseInt(txtaDM.getText().toString());
+			command[2]=command[2]+String.format("%02d", i)+":";
+			i=(int)Float.parseFloat(txtaDS.getText().toString());
+			command[2]=command[2]+String.format("%02d", i)+"#";
+			response[2] = "#";
 		}
 		else{
-			command[2]="Sd-"+txtaDG.getText().toString() +":"+ txtaDM.getText().toString() +":"+ txtaDS.getText().toString()+"#"; 
+			command[2]="Sd-";
+			i=Integer.parseInt(txtaDG.getText().toString());
+			command[2]=command[2]+String.format("%02d", i)+":";
+			i=Integer.parseInt(txtaDM.getText().toString());
+			command[2]=command[2]+String.format("%02d", i)+":";
+			i=Integer.parseInt(txtaDS.getText().toString());
+			command[2]=command[2]+String.format("%02d", i)+"#";
+			response[2] = "#";
 		}
 
 		if (toggleGotoSync.isChecked())
 		{
-			command[3] = "CS#";
+			command[3] = ":CS#";
+			response[3] = "0123456789";
+
 		}
 		else
 		{
 			command[3] = ":ST60#";
+			response[3] = "0123456789";
 		}
 
 	}
@@ -298,7 +324,7 @@ public class GotoSyncActivity extends Activity {
 	private void leResposta(String readMessage)
 	{//	Reply: HH:MM:SS# 
 
-		txtvTextListaDss.setText(readMessage);
+		txtvTextCommad.setText(readMessage);
 		if (":GR#".equals(commandAtual)) {
 			txtRAH.setText(readMessage.subSequence(0, 2));
 			txtRAM.setText(readMessage.subSequence(3, 5));
@@ -309,6 +335,16 @@ public class GotoSyncActivity extends Activity {
 			txtDG.setText(readMessage.subSequence(0, 3));
 			txtDM.setText(readMessage.subSequence(4, 6));
 			txtDS.setText(readMessage.subSequence(7, 9));
+		}
+		if (":ST60#".equals(commandAtual) || ":CS#".equals(commandAtual)) {
+			if (readMessage.equalsIgnoreCase("0"))
+			{
+				Toast.makeText(getApplicationContext(),  R.string.vamos_la, Toast.LENGTH_LONG).show();
+			}
+			else
+			{
+				Toast.makeText(getApplicationContext(),  R.string.abaixo_do_horizonte, Toast.LENGTH_LONG).show();
+			}
 		}
 
 		//		txtvTextListaDss.setText(readMessage);
@@ -323,37 +359,47 @@ public class GotoSyncActivity extends Activity {
 					try {
 						connectedThread.write(command[icom].getBytes());
 						commandAtual=command[icom];
+						Thread.sleep(1500);
 						if (icom == 0)
 						{
 							command[0]=":GD#";
+							response[0] = "#";
 						}
 						if (icom == 1)
 						{
 							command[1]=":GR#";
+							response[1] = "#";
+
 						}
 						if (icom == 2)
 						{
 							command[2]=":GD#";
+							response[2] = "#";
+
 						}
 						if (icom == 3)
 						{
 							command[3]=":GR#";
+							response[3] = "#";
+
 						}
 						if (icom == 4)
 						{
 							command[4]=":GD#";
+							response[4] = "#";
+
 						}
 						if (icom == 5)
 						{
 							command[5]=":GR#";
+							response[5] = "#";
+
 						}
 						icom++;
 						if (icom > 4)
 						{
 							icom=0;
 						}
-						Thread.sleep(500);
-
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}

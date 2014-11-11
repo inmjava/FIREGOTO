@@ -25,6 +25,8 @@ public class StatusActivity extends Activity {
 
 	private BluetoothDevice mmDevice;
 	private ConnectedThread connectedThread;
+	
+	
 
 	private ToggleButton toggleNorteSulLat;
 	private EditText editTextGrauLat;
@@ -64,6 +66,7 @@ public class StatusActivity extends Activity {
 
 
 	private String bufferCmd = "";
+	private String response[] = {"#","#","#","#","#","#"};
 	private String command[] = {":Gt#",":Gg#",":GG#",":GL#",":GS#",":GC#"};
 	private String commandAtual = null;
 	private int icom = 0;
@@ -78,7 +81,7 @@ public class StatusActivity extends Activity {
 				byte[] readBuf = (byte[]) msg.obj;
 				// construct a string from the valid bytes in the buffer
 				String readMessage = new String(readBuf, 0, msg.arg1);
-				if (!readMessage.contains("#"))
+				if (!readMessage.contains(response[icom]))
 				{
 					bufferCmd=bufferCmd+readMessage;	
 				}
@@ -343,6 +346,7 @@ public class StatusActivity extends Activity {
 			i=Integer.parseInt(editTextMinLat.getText().toString());
 			strtmp = strtmp + String.format("%02d", i)+"#";
 			command[0] = strtmp;
+			
 			CheckLat.setChecked(false);
 		}
 		else
@@ -366,6 +370,7 @@ public class StatusActivity extends Activity {
 			i=Integer.parseInt(editTextMinLog.getText().toString());
 			strtmp = strtmp + String.format("%02d", i)+"#";
 			command[1] = strtmp;
+			response[1] = "0123456789";
 			CheckLog.setChecked(false);
 		}
 		else

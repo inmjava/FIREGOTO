@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="br.com.astronomoamador.firgoto.GotoSyncActivity" >
-    
-     <ScrollView
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -14,431 +14,431 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
-    
-    
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textSpace1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/coordenada_atual_"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="@dimen/Grande" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textSpace1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/coordenada_atual_"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="@dimen/Grande" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/TextViewRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/RA"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/Grande" />
+                <TextView
+                    android:id="@+id/TextViewRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/RA"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/Grande" />
 
-        <TextView
-            android:id="@+id/TextViewHoraRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="00"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/Grande" />
+                <TextView
+                    android:id="@+id/TextViewHoraRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="00"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/Grande" />
 
-        <TextView
-            android:id="@+id/textMindoisRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/doispontos"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+                <TextView
+                    android:id="@+id/textMindoisRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/doispontos"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/TextViewMinRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="00"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/Grande" />
+                <TextView
+                    android:id="@+id/TextViewMinRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="00"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/Grande" />
 
-        <TextView
-            android:id="@+id/textSegdoisRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/doispontos"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+                <TextView
+                    android:id="@+id/textSegdoisRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/doispontos"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/TextViewSegRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="00"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/Grande" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/TextViewSegRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="00"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/Grande" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textViewDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/DEC"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="@dimen/Grande" />
+                <TextView
+                    android:id="@+id/textViewDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/DEC"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="@dimen/Grande" />
 
-        <TextView
-            android:id="@+id/TextViewGrauDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="00"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/Grande" />
+                <TextView
+                    android:id="@+id/TextViewGrauDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="00"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/Grande" />
 
-        <TextView
-            android:id="@+id/textGrausDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Grau"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+                <TextView
+                    android:id="@+id/textGrausDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Grau"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/TextViewMinDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="00"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/Grande" />
+                <TextView
+                    android:id="@+id/TextViewMinDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="00"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/Grande" />
 
-        <TextView
-            android:id="@+id/textMinsDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Aspa"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+                <TextView
+                    android:id="@+id/textMinsDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Aspa"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/TextViewSegDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="00"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/Grande" />
+                <TextView
+                    android:id="@+id/TextViewSegDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="00"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/Grande" />
 
-        <TextView
-            android:id="@+id/textMinSegsDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Aspasduplas"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textMinSegsDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Aspasduplas"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textSpace2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=" "
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="@dimen/Pequeno" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textSpace2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="@dimen/Pequeno" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textSpaceCoordenaAlvo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/coordenada_alvo_"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="@dimen/Grande" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textSpaceCoordenaAlvo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/coordenada_alvo_"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="@dimen/Grande" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textViewAlvoRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/alvo_ra"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/Grande" />
+                <TextView
+                    android:id="@+id/textViewAlvoRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/alvo_ra"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/Grande" />
 
-        <EditText
-            android:id="@+id/editTextHoraAlvoRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
+                <EditText
+                    android:id="@+id/editTextHoraAlvoRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:inputType="number"
+                    android:text="00" >
+                </EditText>
 
-        <TextView
-            android:id="@+id/textHoraAlvoRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/doispontos"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+                <TextView
+                    android:id="@+id/textHoraAlvoRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/doispontos"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/editTextMinAlvoRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
+                <EditText
+                    android:id="@+id/editTextMinAlvoRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:inputType="number"
+                    android:text="00" >
+                </EditText>
 
-        <TextView
-            android:id="@+id/textMinAlvoRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/doispontos"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+                <TextView
+                    android:id="@+id/textMinAlvoRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/doispontos"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/editTextSegAlvoRA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/editTextSegAlvoRA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:inputType="number"
+                    android:text="00" >
+                </EditText>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/TextViewAlvoDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/alvo_dec"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/Grande" />
-
-        <ToggleButton
-            android:id="@+id/toggleButtonSinalAlvoDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textOff="@string/Mais"
-            android:textOn="@string/Menos" />
-
-        <EditText
-            android:id="@+id/editTextGrauAlvoDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
-
-        <TextView
-            android:id="@+id/textGrauAlvoDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Grau"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/editTextMinAlvoDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
-
-        <TextView
-            android:id="@+id/textMinAlvoDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Aspa"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/editTextSegAlvoDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:inputType="number" >
-        </EditText>
-
-        <TextView
-            android:id="@+id/textSegAlvoDEC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Aspasduplas"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textSpace3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=" "
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="@dimen/Pequeno" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <ToggleButton
-            android:id="@+id/toggleButtonGotoSync"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/goto_sync"
-            android:textOff="@string/gotu"
-            android:textOn="@string/sync" />
-
-        <Button
-            android:id="@+id/buttonOK"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/ok"
-            android:onClick="GotoSync" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/buttonlocalizaDeep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="localizaDeep"
-            android:text="@string/localizar_deep" />
-
-        <EditText
-            android:id="@+id/editTextlocalizaDSS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="number" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/radioM"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:onClick="onRadioButtonClicked"
-                android:text="M"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/TextViewAlvoDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/alvo_dec"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/Grande" />
+
+                <ToggleButton
+                    android:id="@+id/toggleButtonSinalAlvoDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textOff="@string/Mais"
+                    android:textOn="@string/Menos" />
+
+                <EditText
+                    android:id="@+id/editTextGrauAlvoDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:inputType="number"
+                    android:text="00" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/textGrauAlvoDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Grau"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/editTextMinAlvoDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:inputType="number"
+                    android:text="00" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/textMinAlvoDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Aspa"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/editTextSegAlvoDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:inputType="number"
+                    android:text="00" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/textSegAlvoDEC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Aspasduplas"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textSpace3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="@dimen/Pequeno" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ToggleButton
+                    android:id="@+id/toggleButtonGotoSync"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/goto_sync"
+                    android:textOff="@string/gotu"
+                    android:textOn="@string/sync" />
+
+                <Button
+                    android:id="@+id/buttonOK"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="GotoSync"
+                    android:text="@string/ok" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/buttonlocalizaDeep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="localizaDeep"
+                    android:text="@string/localizar_deep" />
+
+                <EditText
+                    android:id="@+id/editTextlocalizaDSS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="M"
+                        android:textSize="@dimen/medio" />
+
+                    <RadioButton
+                        android:id="@+id/radioC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="C"
+                        android:textSize="@dimen/medio" />
+
+                    <RadioButton
+                        android:id="@+id/radioIC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="IC"
+                        android:textSize="@dimen/medio" />
+
+                    <RadioButton
+                        android:id="@+id/radioNGC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="NGC"
+                        android:textSize="@dimen/medio" />
+
+                    <RadioButton
+                        android:id="@+id/radioStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Star"
+                        android:textSize="@dimen/medio" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textViewListaDss"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textSize="@dimen/medio" />
 
-            <RadioButton
-                android:id="@+id/radioC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onRadioButtonClicked"
-                android:text="C"
+            <TextView
+                android:id="@+id/textViewCommand"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textSize="@dimen/medio" />
-
-            <RadioButton
-                android:id="@+id/radioIC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onRadioButtonClicked"
-                android:text="IC"
-                android:textSize="@dimen/medio" />
-
-            <RadioButton
-                android:id="@+id/radioNGC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onRadioButtonClicked"
-                android:text="NGC"
-                android:textSize="@dimen/medio" />
-            
-            <RadioButton
-                android:id="@+id/radioStar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onRadioButtonClicked"
-                android:text="Star"
-                android:textSize="@dimen/medio" />
-        </RadioGroup>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textViewListaDss"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="@dimen/medio" />
-
-    
-      <TextView
-        android:id="@+id/textViewCommand"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="@dimen/medio" />
-    
-    
-          </LinearLayout>
+        </LinearLayout>
     </ScrollView>
-    
 
 </LinearLayout>
