@@ -49,9 +49,9 @@
         android:id="@+id/ButtonCredito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/buttonControl"
         android:layout_below="@+id/buttonGotoSync"
-        android:layout_marginTop="26dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
         android:onClick="mostrarCredito"
         android:text="@string/Creditos" />
 
