@@ -77,5 +77,6 @@
     <string name="abaixo_do_horizonte">Abaixo do Horizonte</string>
     <string name="atualizado">Atualizado</string>
     <string name="deu_erro">Deu Erro</string>
+    <string name="title_activity_hw">HW Tunning</string>
 
 </resources>

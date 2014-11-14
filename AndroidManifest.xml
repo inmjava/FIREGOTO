@@ -44,6 +44,10 @@
             android:name=".CreditosActive"
             android:label="@string/title_activity_creditos_active" >
         </activity>
+        <activity
+            android:name=".HWActivity"
+            android:label="@string/title_activity_hw" >
+        </activity>
     </application>
 
 </manifest>

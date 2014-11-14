@@ -274,7 +274,7 @@ public class StatusActivity extends Activity {
 				editTextAno.setText(readMessage.subSequence(6, 8));
 			}
 			if (commandAtual.contains(":St")||commandAtual.contains(":Sg")||commandAtual.contains(":SL")||commandAtual.contains(":SG")||commandAtual.contains(":SC"))
-				if (readMessage.equalsIgnoreCase("0"))
+				if (readMessage.equalsIgnoreCase("1"))
 				{
 					Toast.makeText(getApplicationContext(), R.string.atualizado , Toast.LENGTH_LONG).show();
 				}

@@ -12,7 +12,7 @@ public class MainActivity extends Activity {
 	
 	private static final int MOSTRAR_STATUS = 0;
 	private static final int MOSTRAR_MOSTRAR_GOTO_SYNC = 0;
-	
+	private static final int MOSTRAR_CONTROLE = 0;
 	public static int CONFIGURAR_BLUETOOTH = 1;
 	private BluetoothDevice mmDevice;
 
@@ -50,7 +50,9 @@ public class MainActivity extends Activity {
 		startActivityForResult(abrirMostrarStatus,MainActivity.MOSTRAR_STATUS);
 	}
 	public void mostrarControle(View v){
-		startActivity(new Intent(this, MostrarControleActivity.class));
+		Intent MostrarControleActivity = new Intent(this, MostrarControleActivity.class);
+		MostrarControleActivity.putExtra(BluetoothDevice.EXTRA_DEVICE, mmDevice);
+		startActivityForResult(MostrarControleActivity,MainActivity.MOSTRAR_CONTROLE);
 	}
 
 	public void mostrarGotosync(View v){
@@ -67,7 +69,12 @@ public class MainActivity extends Activity {
 			 mmDevice = data.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);	
 		}						
 	}
+	
+	public void mostrarHW(View v){
+		startActivity(new Intent(this, HWActivity.class));
+	}
 	public void mostrarCredito(View v){
 		startActivity(new Intent(this, CreditosActive.class));
 	}
+	
 }
