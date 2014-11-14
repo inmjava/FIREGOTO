@@ -314,34 +314,34 @@ public class GotoSyncActivity extends Activity {
 	private void leResposta(String readMessage)
 	{//	Reply: HH:MM:SS# 
 		try{
-		txtvTextCommad.setText(readMessage);
-		if (":GR#".equals(commandAtual)) {
-			txtRAH.setText(readMessage.subSequence(0, 2));
-			txtRAM.setText(readMessage.subSequence(3, 5));
-			txtRAS.setText(readMessage.subSequence(6, 8));
-		}
-		//	Reply: sDD*MM'SS# *
-		if (":GD#".equals(commandAtual)) {
-			txtDG.setText(readMessage.subSequence(0, 3));
-			txtDM.setText(readMessage.subSequence(4, 6));
-			txtDS.setText(readMessage.subSequence(7, 9));
-		}
-		if (":ST60#".equals(commandAtual) || ":CS#".equals(commandAtual)) {
-			if (readMessage.equalsIgnoreCase("0"))
-			{
-				Toast.makeText(getApplicationContext(), R.string.vamos_la, Toast.LENGTH_LONG).show();
+			txtvTextCommad.setText(readMessage);
+			if (":GR#".equals(commandAtual)) {
+				txtRAH.setText(readMessage.subSequence(0, 2));
+				txtRAM.setText(readMessage.subSequence(3, 5));
+				txtRAS.setText(readMessage.subSequence(6, 8));
 			}
-			else
-			{
-				Toast.makeText(getApplicationContext(), R.string.abaixo_do_horizonte, Toast.LENGTH_LONG).show();
+			//	Reply: sDD*MM'SS# *
+			if (":GD#".equals(commandAtual)) {
+				txtDG.setText(readMessage.subSequence(0, 3));
+				txtDM.setText(readMessage.subSequence(4, 6));
+				txtDS.setText(readMessage.subSequence(7, 9));
 			}
+			if (":ST60#".equals(commandAtual) || ":CS#".equals(commandAtual)) {
+				if (readMessage.equalsIgnoreCase("0"))
+				{
+					Toast.makeText(getApplicationContext(), R.string.vamos_la, Toast.LENGTH_LONG).show();
+				}
+				else
+				{
+					Toast.makeText(getApplicationContext(), R.string.abaixo_do_horizonte, Toast.LENGTH_LONG).show();
+				}
+			}
+
+		} catch (Exception e) {
+			String strtemp="error  " + commandAtual + " - " + readMessage.toString();
+			Toast.makeText(getApplicationContext(), strtemp , Toast.LENGTH_LONG).show();
+			e.printStackTrace();
 		}
-		
-	} catch (Exception e) {
-		String strtemp="error  " + commandAtual + " - " + readMessage.toString();
-		Toast.makeText(getApplicationContext(), strtemp , Toast.LENGTH_LONG).show();
-		e.printStackTrace();
-	}
 		//		txtvTextListaDss.setText(readMessage);
 	}
 	private void MandaComando()
