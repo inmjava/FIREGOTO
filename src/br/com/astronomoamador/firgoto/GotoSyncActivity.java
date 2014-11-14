@@ -31,8 +31,6 @@ public class GotoSyncActivity extends Activity {
 	private String commandAtual = null;
 	private String bufferCmd = "";
 	private int icom = 0;
-
-
 	private InputStream catalogue = null;
 	private int filecatalogue=R.raw.cataloguemessier;
 	private boolean StarFile=false;
@@ -67,7 +65,6 @@ public class GotoSyncActivity extends Activity {
 					leResposta(bufferCmd);
 					String tmp = bufferCmd;
 					bufferCmd="";
-
 				}
 				else
 				{
@@ -96,10 +93,8 @@ public class GotoSyncActivity extends Activity {
 		txtDG = (TextView) findViewById(R.id.TextViewGrauDEC);
 		txtDM = (TextView) findViewById(R.id.TextViewMinDEC);
 		txtDS = (TextView) findViewById(R.id.TextViewSegDEC);
-
 		txtvTextListaDss = (TextView) findViewById(R.id.textViewListaDss);
 		txtvTextCommad = (TextView) findViewById(R.id.textViewCommand);
-
 		toggleNorteSul = (ToggleButton) findViewById(R.id.toggleButtonSinalAlvoDEC);
 		toggleGotoSync = (ToggleButton) findViewById(R.id.toggleButtonGotoSync);
 		txtlocalizaDSS.setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -166,19 +161,16 @@ public class GotoSyncActivity extends Activity {
 			command[2]=command[2]+String.format("%02d", i)+"#";
 			response[2] = "#";
 		}
-
 		if (toggleGotoSync.isChecked())
 		{
 			command[3] = ":CS#";
 			response[3] = "0123456789";
-
 		}
 		else
 		{
 			command[3] = ":ST60#";
 			response[3] = "0123456789";
 		}
-
 	}
 	public void onRadioButtonClicked(View view) {
 		// Is the button now checked?
@@ -221,7 +213,6 @@ public class GotoSyncActivity extends Activity {
 		}
 		catch (Exception e) 
 		{
-
 		}
 	}
 	public void localizaDeep(View v){
@@ -303,7 +294,6 @@ public class GotoSyncActivity extends Activity {
 		}
 		catch (Exception e) 
 		{
-
 		}
 	}
 	public boolean onKeyDown(int keyCode, KeyEvent event)
@@ -323,7 +313,7 @@ public class GotoSyncActivity extends Activity {
 	}	
 	private void leResposta(String readMessage)
 	{//	Reply: HH:MM:SS# 
-
+		try{
 		txtvTextCommad.setText(readMessage);
 		if (":GR#".equals(commandAtual)) {
 			txtRAH.setText(readMessage.subSequence(0, 2));
@@ -339,19 +329,23 @@ public class GotoSyncActivity extends Activity {
 		if (":ST60#".equals(commandAtual) || ":CS#".equals(commandAtual)) {
 			if (readMessage.equalsIgnoreCase("0"))
 			{
-				Toast.makeText(getApplicationContext(),  R.string.vamos_la, Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), R.string.vamos_la, Toast.LENGTH_LONG).show();
 			}
 			else
 			{
-				Toast.makeText(getApplicationContext(),  R.string.abaixo_do_horizonte, Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), R.string.abaixo_do_horizonte, Toast.LENGTH_LONG).show();
 			}
 		}
-
+		
+	} catch (Exception e) {
+		String strtemp="error  " + commandAtual + " - " + readMessage.toString();
+		Toast.makeText(getApplicationContext(), strtemp , Toast.LENGTH_LONG).show();
+		e.printStackTrace();
+	}
 		//		txtvTextListaDss.setText(readMessage);
 	}
 	private void MandaComando()
 	{
-
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -369,31 +363,26 @@ public class GotoSyncActivity extends Activity {
 						{
 							command[1]=":GR#";
 							response[1] = "#";
-
 						}
 						if (icom == 2)
 						{
 							command[2]=":GD#";
 							response[2] = "#";
-
 						}
 						if (icom == 3)
 						{
 							command[3]=":GR#";
 							response[3] = "#";
-
 						}
 						if (icom == 4)
 						{
 							command[4]=":GD#";
 							response[4] = "#";
-
 						}
 						if (icom == 5)
 						{
 							command[5]=":GR#";
 							response[5] = "#";
-
 						}
 						icom++;
 						if (icom > 4)
@@ -403,10 +392,8 @@ public class GotoSyncActivity extends Activity {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-
 				}
 			}
 		}).start();
 	}
-
 }

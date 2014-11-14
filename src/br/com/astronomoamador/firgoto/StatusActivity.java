@@ -124,7 +124,7 @@ public class StatusActivity extends Activity {
 					try {
 						connectedThread.write(command[icom].getBytes());
 						commandAtual=command[icom];
-						Thread.sleep(1250);
+						Thread.sleep(300);
 						if (icom == 0)
 						{
 							command[0]="";
@@ -200,88 +200,98 @@ public class StatusActivity extends Activity {
 	}	
 	private void leResposta(String readMessage)
 	{						
-
 		int tmphh=0;
 		String strtemp;
-		if (":Gt#".equals(commandAtual)) {
-			strtemp=readMessage.subSequence(0, 1).toString();
-			if ( strtemp.equalsIgnoreCase("-"))
-			{
-				toggleLestOestLog.setChecked(false);
+		try{
+			if (":Gt#".equals(commandAtual)) {
+				strtemp=readMessage.subSequence(0, 1).toString();
+				if ( strtemp.equalsIgnoreCase("-"))
+				{
+					toggleLestOestLog.setChecked(false);
+				}
+				else
+				{
+					toggleLestOestLog.setChecked(true);
+				}
+				editTextGrauLat.setText(readMessage.subSequence(1, 3));
+				editTextMinLat.setText(readMessage.subSequence(4, 6));
 			}
-			else
-			{
-				toggleLestOestLog.setChecked(true);
+			if (":Gg#".equals(commandAtual)) {
+				strtemp=readMessage.subSequence(0, 1).toString();
+				if ( strtemp.equalsIgnoreCase("-"))
+				{
+					toggleNorteSulLat.setChecked(true);
+				}
+				else
+				{
+					toggleNorteSulLat.setChecked(false);
+				}
+				editTextGrauLog.setText(readMessage.subSequence(1, 4));
+				editTextMinLog.setText(readMessage.subSequence(5, 7));
 			}
-			editTextGrauLat.setText(readMessage.subSequence(1, 3));
-			editTextMinLat.setText(readMessage.subSequence(4, 6));
+			if (":GL#".equals(commandAtual)) {
+				tmphh=Integer.parseInt(readMessage.subSequence(0, 2).toString());
+				editTextHoraTime.setText(readMessage.subSequence(0, 2));
+				editTextMinTime.setText(readMessage.subSequence(3, 5));
+				editTextSegTime.setText(readMessage.subSequence(6, 8));
+			}
+			if (":GG#".equals(commandAtual)) {
+				editTextUTCSet.setText(String.valueOf(readMessage.subSequence(1, 3)));
+				strtemp=readMessage.subSequence(0, 1).toString();
+				if ( strtemp.equalsIgnoreCase("-"))
+				{
+					toggleUTC.setChecked(true);
+				}
+				else
+				{
+					toggleUTC.setChecked(false);
+				}
+				strtemp=readMessage.subSequence(0, 3).toString();
+				UTC=Integer.parseInt(strtemp);
+			}
+			if (":GL#".equals(commandAtual)) {
+				tmphh=tmphh+UTC;
+				if (tmphh > 23)
+				{
+					tmphh=tmphh-24;
+				}
+				if (tmphh < 0)
+				{
+					tmphh=tmphh+24;
+				}
+				TextHoraUTC.setText(String.valueOf(tmphh));
+				TextMinUTC.setText(readMessage.subSequence(3, 5));
+				TextSegUTC.setText(readMessage.subSequence(6, 8));
+			}
+			if (":GS#".equals(commandAtual)) {
+				TextHoraLST.setText(readMessage.subSequence(0, 2));
+				TextMinLST.setText(readMessage.subSequence(3, 5));
+				TextSegLST.setText(readMessage.subSequence(6, 8));
+			}
+			if (":GC#".equals(commandAtual)) {
+				editTextMes.setText(readMessage.subSequence(0, 2));
+				editTextDia.setText(readMessage.subSequence(3, 5));
+				editTextAno.setText(readMessage.subSequence(6, 8));
+			}
+			if (commandAtual.contains(":St")||commandAtual.contains(":Sg")||commandAtual.contains(":SL")||commandAtual.contains(":SG")||commandAtual.contains(":SC"))
+				if (readMessage.equalsIgnoreCase("0"))
+				{
+					Toast.makeText(getApplicationContext(), R.string.atualizado , Toast.LENGTH_LONG).show();
+				}
+				else
+				{
+					Toast.makeText(getApplicationContext(), R.string.deu_erro , Toast.LENGTH_LONG).show();
+				}
+
+
+		} catch (Exception e) {
+			strtemp="error  " + commandAtual + " - " + readMessage.toString();
+			Toast.makeText(getApplicationContext(), strtemp , Toast.LENGTH_LONG).show();
+			e.printStackTrace();
 		}
-		if (":Gg#".equals(commandAtual)) {
-			strtemp=readMessage.subSequence(0, 1).toString();
-			if ( strtemp.equalsIgnoreCase("-"))
-			{
-				toggleNorteSulLat.setChecked(true);
-			}
-			else
-			{
-				toggleNorteSulLat.setChecked(false);
-			}
-			editTextGrauLog.setText(readMessage.subSequence(1, 4));
-			editTextMinLog.setText(readMessage.subSequence(5, 7));
-		}
-		if (":GL#".equals(commandAtual)) {
-			tmphh=Integer.parseInt(readMessage.subSequence(0, 2).toString());
-			editTextHoraTime.setText(readMessage.subSequence(0, 2));
-			editTextMinTime.setText(readMessage.subSequence(3, 5));
-			editTextSegTime.setText(readMessage.subSequence(6, 8));
-		}
-		if (":GG#".equals(commandAtual)) {
-			editTextUTCSet.setText(String.valueOf(readMessage.subSequence(1, 3)));
-			strtemp=readMessage.subSequence(0, 1).toString();
-			if ( strtemp.equalsIgnoreCase("-"))
-			{
-				toggleUTC.setChecked(true);
-			}
-			else
-			{
-				toggleUTC.setChecked(false);
-			}
-			strtemp=readMessage.subSequence(0, 3).toString();
-			UTC=Integer.parseInt(strtemp);
-		}
-		if (":GL#".equals(commandAtual)) {
-			tmphh=tmphh+UTC;
-			if (tmphh > 23)
-			{
-				tmphh=tmphh-24;
-			}
-			if (tmphh < 0)
-			{
-				tmphh=tmphh+24;
-			}
-			TextHoraUTC.setText(String.valueOf(tmphh));
-			TextMinUTC.setText(readMessage.subSequence(3, 5));
-			TextSegUTC.setText(readMessage.subSequence(6, 8));
-		}
-		if (":GS#".equals(commandAtual)) {
-			TextHoraLST.setText(readMessage.subSequence(0, 2));
-			TextMinLST.setText(readMessage.subSequence(3, 5));
-			TextSegLST.setText(readMessage.subSequence(6, 8));
-		}
-		if (":GC#".equals(commandAtual)) {
-			editTextMes.setText(readMessage.subSequence(0, 2));
-			editTextDia.setText(readMessage.subSequence(3, 5));
-			editTextAno.setText(readMessage.subSequence(6, 8));
-		}
-		if (commandAtual.contains(":St")||commandAtual.contains(":Sg")||commandAtual.contains(":SL")||commandAtual.contains(":SG")||commandAtual.contains(":SC"))
-			if (readMessage.equalsIgnoreCase("0"))
-			{
-				Toast.makeText(getApplicationContext(), R.string.atualizado , Toast.LENGTH_LONG).show();
-			}
-			else
-			{
-				Toast.makeText(getApplicationContext(), R.string.deu_erro , Toast.LENGTH_LONG).show();
-			}
+
+
+
 	}
 	public void atualizar(View v){
 		String strtmp;
@@ -412,4 +422,5 @@ Returns:
 		}
 		icom=0;
 	}
+
 }
