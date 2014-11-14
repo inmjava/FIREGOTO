@@ -37,15 +37,11 @@ public class MostrarControleActivity extends Activity {
 	private BluetoothDevice mmDevice;
 	private ConnectedThread connectedThread;
 	////////variaveis geral
-	private String command[] = {":GD#",":GR#",":GD#",":GR#",":GD#",":GR#"};
-	private String response[] = {"#","#","#","#","#","#"};
+	private String command[] = {":GD#",":GR#",":GA#",":GZ#",":GD#",":GR#",":GA#",":GZ#"};
+	private String response[] = {"#","#","#","#","#","#","#","#"};
 	private String commandAtual = null;
 	private String bufferCmd = "";
 	private int icom = 0;
-	private InputStream catalogue = null;
-	private int filecatalogue=R.raw.cataloguemessier;
-	private boolean StarFile=false;
-	private EditText txtlocalizaDSS;
 	private TextView txtAZG;
 	private TextView txtAZM;
 	private TextView txtAZS;
@@ -58,17 +54,15 @@ public class MostrarControleActivity extends Activity {
 	private TextView txtDG;
 	private TextView txtDM;
 	private TextView txtDS;
-	private TextView txtvTextListaDss;
-	private TextView txtvTextCommad;
-	private ToggleButton toggleNorteSul;
-	private ToggleButton toggleGotoSync;
+	private TextView textCommand;
+	Button bGuia;
+	Button buttonNE,buttonN,buttonNO,ButtonL,ButtonStop,ButtonO,ButtonSE,ButtonS,ButtonSO;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mostrar_controle);
-
-		txtlocalizaDSS = (EditText) findViewById(R.id.editTextlocalizaDSS);
+		textCommand = (TextView) findViewById(R.id.textCommand);
 		txtAZG = (TextView) findViewById(R.id.TextViewGrauAZ);
 		txtAZM = (TextView) findViewById(R.id.TextViewMinAZ);
 		txtAZS = (TextView) findViewById(R.id.TextViewSegAZ);
@@ -81,6 +75,21 @@ public class MostrarControleActivity extends Activity {
 		txtDG = (TextView) findViewById(R.id.TextViewGrauDEC);
 		txtDM = (TextView) findViewById(R.id.TextViewMinDEC);
 		txtDS = (TextView) findViewById(R.id.TextViewSegDEC);
+		buttonNE = (Button) findViewById(R.id.buttonNE);
+		buttonN = (Button) findViewById(R.id.buttonN);
+		buttonNO = (Button) findViewById(R.id.buttonNO);
+		ButtonL = (Button) findViewById(R.id.ButtonL);
+		ButtonStop = (Button) findViewById(R.id.ButtonStop);
+		ButtonO = (Button) findViewById(R.id.ButtonO);
+		ButtonSE = (Button) findViewById(R.id.ButtonSE);
+		ButtonS = (Button) findViewById(R.id.ButtonS);
+		ButtonSO = (Button) findViewById(R.id.ButtonSO);
+
+
+		bGuia = (Button) findViewById(R.id.ButtonGuia);
+
+
+
 		//Bluetooth
 		mmDevice = getIntent().getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 		if(mmDevice != null){
@@ -95,8 +104,8 @@ public class MostrarControleActivity extends Activity {
 		}
 		addListenerOnButton();
 	}
-	
-	
+
+
 	private final Handler mHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
@@ -122,7 +131,7 @@ public class MostrarControleActivity extends Activity {
 			}
 		}
 	};
-	
+
 	public boolean onKeyDown(int keyCode, KeyEvent event)
 	{
 		if ((keyCode == KeyEvent.KEYCODE_BACK))
@@ -138,9 +147,9 @@ public class MostrarControleActivity extends Activity {
 		}
 		return super.onKeyDown(keyCode, event);
 	}	
-	
-	
-	
+
+
+
 	private void MandaComando()
 	{
 		new Thread(new Runnable() {
@@ -163,12 +172,12 @@ public class MostrarControleActivity extends Activity {
 						}
 						if (icom == 2)
 						{
-							command[2]=":GD#";
+							command[2]=":GZ#";
 							response[2] = "#";
 						}
 						if (icom == 3)
 						{
-							command[3]=":GR#";
+							command[3]=":GA#";
 							response[3] = "#";
 						}
 						if (icom == 4)
@@ -181,8 +190,21 @@ public class MostrarControleActivity extends Activity {
 							command[5]=":GR#";
 							response[5] = "#";
 						}
+						if (icom == 6)
+						{
+							command[6]=":GZ#";
+							response[6] = "#";
+						}
+						if (icom == 7)
+						{
+							command[7]=":GA#";
+							response[7] = "#";
+						}
+
+
+
 						icom++;
-						if (icom > 4)
+						if (icom > 7)
 						{
 							icom=0;
 						}
@@ -193,9 +215,9 @@ public class MostrarControleActivity extends Activity {
 			}
 		}).start();
 	}
-	
-	
-	
+
+
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -219,7 +241,7 @@ public class MostrarControleActivity extends Activity {
 
 	public void addListenerOnButton() {
 
-		Button bGuia = (Button) findViewById(R.id.ButtonGuia);
+
 
 		bGuia.setOnClickListener(new OnClickListener()
 		{
@@ -227,6 +249,8 @@ public class MostrarControleActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				txtAZG.setText("11");
+				command[1]=":Qs#";
+				icom=0;
 			}
 		});
 
@@ -236,15 +260,228 @@ public class MostrarControleActivity extends Activity {
 			@Override
 			public boolean onLongClick(View v) {
 				txtAZG.setText("22");
+				command[1]=":ST01#";
+				icom=0;
 				return false;
 			}
 		});
+
+
+		////////////////////////////////////////////////////////////////////////////////
+		/*
+		 * 
+		 * Q – Movement Commands 
+:Q# Halt all current slewing 
+ Returns:Nothing 
+:Qe# Halt eastward Slews 
+ Returns: Nothing 
+:Qn# Halt northward Slews 
+ Returns: Nothing 
+:Qs# Halt southward Slews 
+ Returns: Nothing 
+:Qw# Halt westward Slews
+		 * 
+		 */
+
+		buttonNE.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":Qe#:Qn#";
+				icom=0;
+			}
+		});
+		buttonN.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":Qn#";
+				icom=0;
+			}
+		});
+		buttonNO.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":Qn#:Qw#";
+				icom=0;
+			}
+		});
+		ButtonL.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":Qe#";
+				icom=0;
+			}
+		});
+		ButtonStop.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":Q#";
+				icom=0;
+			}
+		});
+		ButtonO.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":Qw#";
+				icom=0;
+			}
+		});
+		ButtonSE.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":Qs#:Qe#";
+				icom=0;
+			}
+		});
+		ButtonS.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":Qs#";
+				icom=0;
+			}
+		});
+		ButtonSO.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":Qs#:Qw#";
+				icom=0;
+			}
+		});
+
+		///////////////////////////////////////////////////////////////////////////////////
+		/*
+		 * 
+		 * 
+		 * :Me# Move Telescope East at current slew rate 
+ Returns: Nothing 
+:Mn# Move Telescope North at current slew rate 
+ Returns: Nothing 
+:Ms# Move Telescope South at current slew rate 
+ Returns: Nothing 
+:Mw# Move Telescope West at current slew rate 
+ Returns: Nothing 
+		 * 
+		 */
+
+		buttonNE.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+
+			@Override
+			public boolean onLongClick(View v) {
+				command[1]=":Me#:Mn#";
+				icom=0;
+				return false;
+			}
+		});
+		buttonN.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+
+			@Override
+			public boolean onLongClick(View v) {
+				command[1]=":Mn#";
+				icom=0;
+				return false;
+			}
+		});
+		buttonNO.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+
+			@Override
+			public boolean onLongClick(View v) {
+				command[1]=":Mw#:Mn#";
+				icom=0;
+				return false;
+			}
+		});
+		ButtonL.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+
+			@Override
+			public boolean onLongClick(View v) {
+				command[1]=":Me#";
+				icom=0;
+				return false;
+			}
+		});
+		ButtonStop.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+
+			@Override
+			public boolean onLongClick(View v) {
+				command[1]=":Q#";
+				icom=0;
+				return false;
+			}
+		});
+		ButtonO.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+
+			@Override
+			public boolean onLongClick(View v) {
+				command[1]=":Mw#";
+				icom=0;
+				return false;
+			}
+		});
+		ButtonSE.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+
+			@Override
+			public boolean onLongClick(View v) {
+				command[1]=":Me#:Ms#";
+				icom=0;
+				return false;
+			}
+		});
+		ButtonS.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+
+			@Override
+			public boolean onLongClick(View v) {
+				command[1]=":Ms#";
+				icom=0;
+				return false;
+			}
+		});
+		ButtonSO.setOnLongClickListener(new View.OnLongClickListener() 
+		{
+
+			@Override
+			public boolean onLongClick(View v) {
+				command[1]=":Mw#:Ms#";
+				icom=0;
+				return false;
+			}
+		});
+
+
+
+
+
+
 	}
-	
+
 	private void leResposta(String readMessage)
 	{//	Reply: HH:MM:SS# 
 		try{
-			txtvTextCommad.setText(readMessage);
+			textCommand.setText(commandAtual);
 			if (":GR#".equals(commandAtual)) {
 				txtRAH.setText(readMessage.subSequence(0, 2));
 				txtRAM.setText(readMessage.subSequence(3, 5));
@@ -255,6 +492,17 @@ public class MostrarControleActivity extends Activity {
 				txtDG.setText(readMessage.subSequence(0, 3));
 				txtDM.setText(readMessage.subSequence(4, 6));
 				txtDS.setText(readMessage.subSequence(7, 9));
+			}
+			if (":GA#".equals(commandAtual)) {
+				txtALTG.setText(readMessage.subSequence(0, 3));
+				txtALTM.setText(readMessage.subSequence(4, 6));
+				txtALTS.setText(readMessage.subSequence(7, 9));
+			}
+			//	Reply: sDD*MM'SS# *
+			if (":GZ#".equals(commandAtual)) {
+				txtAZG.setText(readMessage.subSequence(0, 3));
+				txtAZM.setText(readMessage.subSequence(4, 6));
+				txtAZS.setText(readMessage.subSequence(7, 9));
 			}
 			if (":ST60#".equals(commandAtual) || ":CS#".equals(commandAtual)) {
 				if (readMessage.equalsIgnoreCase("0"))
@@ -274,6 +522,6 @@ public class MostrarControleActivity extends Activity {
 		}
 		//		txtvTextListaDss.setText(readMessage);
 	}
-	
+
 
 }

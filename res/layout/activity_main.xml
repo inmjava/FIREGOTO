@@ -9,16 +9,6 @@
     tools:context="br.com.astronomoamador.firgoto.MainActivity" >
 
     <Button
-        android:id="@+id/btnConexao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:onClick="configurarBluetooth"
-        android:text="@string/configurar_bluetooth" />
-
-    <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,23 +36,32 @@
         android:text="@string/goto_sync" />
 
     <Button
-        android:id="@+id/buttonHW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/buttonControl"
-        android:layout_below="@+id/buttonGotoSync"
-        android:layout_marginTop="47dp"
-        android:onClick="mostrarHW"
-        android:text="FIRE HW" />
-
-    <Button
         android:id="@+id/ButtonCredito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button1"
         android:layout_below="@+id/buttonHW"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
         android:onClick="mostrarCredito"
         android:text="@string/Creditos" />
+
+    <Button
+        android:id="@+id/btnConexao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:onClick="configurarBluetooth"
+        android:text="@string/configurar_bluetooth" />
+
+    <Button
+        android:id="@+id/buttonHW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonControl"
+        android:layout_below="@+id/buttonGotoSync"
+        android:layout_marginTop="32dp"
+        android:onClick="mostrarHW"
+        android:text="@string/fire_hw" />
 
 </RelativeLayout>
