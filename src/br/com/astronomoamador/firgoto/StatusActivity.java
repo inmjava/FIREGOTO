@@ -241,16 +241,19 @@ public class StatusActivity extends Activity {
 				if ( strtemp.equalsIgnoreCase("-"))
 				{
 					toggleUTC.setChecked(true);
+					strtemp=readMessage.subSequence(1, 3).toString();
+					UTC=(Integer.parseInt(strtemp))*-1;
 				}
 				else
 				{
 					toggleUTC.setChecked(false);
+					strtemp=readMessage.subSequence(1, 3).toString();
+					UTC=Integer.parseInt(strtemp);
 				}
-				strtemp=readMessage.subSequence(1, 3).toString();
-				UTC=Integer.parseInt(strtemp);
+
 			}
 			if (":GL#".equals(commandAtual)) {
-				tmphh=tmphh+UTC;
+				tmphh=tmphh-UTC;
 				if (tmphh > 23)
 				{
 					tmphh=tmphh-24;
