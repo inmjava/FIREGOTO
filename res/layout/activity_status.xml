@@ -335,7 +335,8 @@
             android:id="@+id/TextMinUTC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100" />
+            android:layout_weight="100" 
+            android:textSize="@dimen/Grande"/>
 
         <TextView
             android:id="@+id/textMinUTC1"
@@ -349,7 +350,8 @@
             android:id="@+id/TextSegUTC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="100" />
+            android:layout_weight="100" 
+            android:textSize="@dimen/Grande"/>
     </LinearLayout>
 
     <LinearLayout

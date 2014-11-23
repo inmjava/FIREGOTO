@@ -246,7 +246,7 @@ public class StatusActivity extends Activity {
 				{
 					toggleUTC.setChecked(false);
 				}
-				strtemp=readMessage.subSequence(0, 3).toString();
+				strtemp=readMessage.subSequence(1, 3).toString();
 				UTC=Integer.parseInt(strtemp);
 			}
 			if (":GL#".equals(commandAtual)) {
