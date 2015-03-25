@@ -494,11 +494,11 @@ public class MostrarControleActivity extends Activity {
 				txtDS.setText(readMessage.subSequence(7, 9));
 			}
 			if (":GA#".equals(commandAtual)) {
-				txtALTG.setText(readMessage.subSequence(0, 2));
-				txtALTM.setText(readMessage.subSequence(3, 5));
-				txtALTS.setText(readMessage.subSequence(6, 8));
+				txtALTG.setText(readMessage.subSequence(0, 3));
+				txtALTM.setText(readMessage.subSequence(4, 6));
+				txtALTS.setText(readMessage.subSequence(7, 9));
 			}
-			//	Reply: sDD*MM'SS# *
+			//	Reply:  DDD*MM’SS# *
 			if (":GZ#".equals(commandAtual)) {
 				txtAZG.setText(readMessage.subSequence(0, 3));
 				txtAZM.setText(readMessage.subSequence(4, 6));
