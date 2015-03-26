@@ -168,7 +168,7 @@ public class GotoSyncActivity extends Activity {
 		}
 		else
 		{
-			command[3] = ":ST60#";
+			command[3] = ":MS#";
 			response[3] = "0123456789";
 		}
 	}

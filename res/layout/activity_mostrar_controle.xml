@@ -132,7 +132,7 @@
                     android:text="@string/guia" />
 
                 <Button
-                    android:id="@+id/ButtonCentrp"
+                    android:id="@+id/ButtonCentro"
                     style="@style/AppBaseTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -162,11 +162,11 @@
                 android:layout_height="wrap_content" >
 
                 <Button
-                    android:id="@+id/buttonAcomp"
+                    android:id="@+id/ButtonSync"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/acompanhamento" />
+                    android:text="@string/Syncro" />
             </LinearLayout>
 
             <LinearLayout

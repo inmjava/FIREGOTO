@@ -65,6 +65,7 @@
     <string name="alvo_dec">Alvo DEC:</string>
     <string name="alvo_ra">Alvo RA:</string>
     <string name="sync">Sync</string>
+    <string name="Syncro">Syncronize</string>
     <string name="gotu">Goto</string>
     <string name="ok">OK</string>
     <string name="menu">Menu</string>
