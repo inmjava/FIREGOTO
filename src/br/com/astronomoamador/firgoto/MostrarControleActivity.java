@@ -55,7 +55,7 @@ public class MostrarControleActivity extends Activity {
 	private TextView txtDM;
 	private TextView txtDS;
 	private TextView textCommand;
-	Button bGuia;
+	Button bGuia,bCentro,bLocalizar,bRapido,bSync;
 	Button buttonNE,buttonN,buttonNO,ButtonL,ButtonStop,ButtonO,ButtonSE,ButtonS,ButtonSO;
 
 	@Override
@@ -87,6 +87,12 @@ public class MostrarControleActivity extends Activity {
 
 
 		bGuia = (Button) findViewById(R.id.ButtonGuia);
+		bCentro= (Button) findViewById(R.id.ButtonCentro);
+		bLocalizar= (Button) findViewById(R.id.ButtonLocalizar);
+		bRapido= (Button) findViewById(R.id.ButtonRapido);
+		bSync= (Button) findViewById(R.id.ButtonSync);
+
+		
 
 
 
@@ -248,21 +254,45 @@ public class MostrarControleActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				txtAZG.setText("11");
-				command[1]=":Qs#";
+				command[1]=":RG#";
+				icom=0;
+			}
+		});
+		bCentro.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":RC#";
+				icom=0;
+			}
+		});
+		bLocalizar.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":RM#";
+				icom=0;
+			}
+		});
+		bRapido.setOnClickListener(new OnClickListener()
+		{
+
+			@Override
+			public void onClick(View v) {
+				command[1]=":RS#";
 				icom=0;
 			}
 		});
 
-		bGuia.setOnLongClickListener(new View.OnLongClickListener() 
+		bSync.setOnClickListener(new OnClickListener()
 		{
 
 			@Override
-			public boolean onLongClick(View v) {
-				txtAZG.setText("22");
-				command[1]=":ST01#";
+			public void onClick(View v) {
+				command[1]=":CS#";
 				icom=0;
-				return false;
 			}
 		});
 
