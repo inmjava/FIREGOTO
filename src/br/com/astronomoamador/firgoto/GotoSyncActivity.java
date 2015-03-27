@@ -142,7 +142,7 @@ public class GotoSyncActivity extends Activity {
 		//SdsDD:MM:SS# *
 		if (toggleNorteSul.isChecked())
 		{
-			command[2]="Sd+";
+			command[2]="Sd-";
 			i=Integer.parseInt(txtaDG.getText().toString());
 			command[2]=command[2]+String.format("%02d", i)+":";
 			i=Integer.parseInt(txtaDM.getText().toString());
@@ -152,7 +152,7 @@ public class GotoSyncActivity extends Activity {
 			response[2] = "#";
 		}
 		else{
-			command[2]="Sd-";
+			command[2]="Sd+";
 			i=Integer.parseInt(txtaDG.getText().toString());
 			command[2]=command[2]+String.format("%02d", i)+":";
 			i=Integer.parseInt(txtaDM.getText().toString());

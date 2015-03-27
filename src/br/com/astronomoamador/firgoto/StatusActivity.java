@@ -233,6 +233,9 @@ public class StatusActivity extends Activity {
 				editTextHoraTime.setText(readMessage.subSequence(0, 2));
 				editTextMinTime.setText(readMessage.subSequence(3, 5));
 				editTextSegTime.setText(readMessage.subSequence(6, 8));
+				TextHoraUTC.setText(readMessage.subSequence(0, 2));
+				TextMinUTC.setText(readMessage.subSequence(3, 5));
+				TextSegUTC.setText(readMessage.subSequence(6, 8));
 			}
 			if (":GG#".equals(commandAtual)) {
 				editTextUTCSet.setText(String.valueOf(readMessage.subSequence(
@@ -249,11 +252,7 @@ public class StatusActivity extends Activity {
 				}
 
 			}
-			if (":GL#".equals(commandAtual)) {
-				TextHoraUTC.setText(String.valueOf(tmphh));
-				TextMinUTC.setText(readMessage.subSequence(3, 5));
-				TextSegUTC.setText(readMessage.subSequence(6, 8));
-			}
+
 			if (":GS#".equals(commandAtual)) {
 				TextHoraLST.setText(readMessage.subSequence(0, 2));
 				TextMinLST.setText(readMessage.subSequence(3, 5));
