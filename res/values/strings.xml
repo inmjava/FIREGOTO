@@ -33,6 +33,11 @@
     <string name="Grau">°</string>
     <string name="Mais">+</string>
     <string name="Menos">-</string>
+    <string name="PassoRa">Passos RA(ALt)</string>
+    <string name="PassoDec">Passos DEC(Az)</string>
+    <string name="Timer">Pulso</string>
+    <string name="ms">mseg</string>
+    
 
     <string-array name="planets_array">
         <item>Mercury</item>
@@ -80,5 +85,9 @@
     <string name="deu_erro">Deu Erro</string>
     <string name="title_activity_hw">HW Tunning</string>
     <string name="fire_hw">FIRE HW</string>
+    
+    <string name="HelpH">Calculo de Passos e: \nReducao total x Num. de passo do motor x Num. de micro passo</string>
+        <string name="HelpH2">Pulso em "Milissegundo" e deverá ser superior a 150 ms</string>
+    
 
 </resources>

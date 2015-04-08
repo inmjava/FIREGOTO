@@ -20,6 +20,7 @@ import android.widget.ToggleButton;
 import android.widget.CheckBox;
 
 public class StatusActivity extends Activity {
+	private int UTC = 0;
 	private BluetoothDevice mmDevice;
 	private ConnectedThread connectedThread;
 	private ToggleButton toggleNorteSulLat;
@@ -36,7 +37,6 @@ public class StatusActivity extends Activity {
 	private CheckBox CheckTime;
 	private ToggleButton toggleUTC;
 	private EditText editTextUTCSet;
-	private int UTC = 0;
 	private CheckBox CheckUTC;
 	private TextView TextHoraUTC;
 	private TextView TextMinUTC;
@@ -206,7 +206,6 @@ public class StatusActivity extends Activity {
 	}
 
 	private void leResposta(String readMessage) {
-		int tmphh = 0;
 		String strtemp;
 		try {
 			if (":Gt#".equals(commandAtual)) {
@@ -325,7 +324,7 @@ public class StatusActivity extends Activity {
 			response[1] = "#";
 		}
 		/*
-		 * :SLHH:MM:SS# Set the local Time Returns: 0 – Invalid
+		 * :SLHH:MM:SS# Set the local Time Returns: 0 ï¿½ Invalid
 		 */
 		if (CheckTime.isChecked()) {
 			// :SLHH:MM:SS#
@@ -345,7 +344,7 @@ public class StatusActivity extends Activity {
 		}
 		/*
 		 * :SGsHH.H# Set the number of hours added to local time to yield UTC
-		 * Returns: 0 – Invalid 1 - Valid
+		 * Returns: 0 ï¿½ Invalid 1 - Valid
 		 */
 		if (CheckUTC.isChecked()) {
 			// :SGsHH#
@@ -367,8 +366,8 @@ public class StatusActivity extends Activity {
 		response[4] = "#";
 		/*
 		 * :SCMM/DD/YY# Change Handbox Date to MM/DD/YY Returns: <D><string> D =
-		 * ‘0’ if the date is invalid. The string is the null string. D = ‘1’
-		 * for valid dates and the string is “Updating Planetary Data# #” Note:
+		 * ï¿½0ï¿½ if the date is invalid. The string is the null string. D = ï¿½1ï¿½
+		 * for valid dates and the string is ï¿½Updating Planetary Data# #ï¿½ Note:
 		 * For LX200GPS this is the UTC data!
 		 */
 		if (CheckData.isChecked()) {
