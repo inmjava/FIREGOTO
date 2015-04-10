@@ -20,11 +20,21 @@ import android.widget.ToggleButton;
 import android.widget.CheckBox;
 
 public class HWActivity extends Activity {
-	
+
+	private EditText EditTextPassoRa;
+	private CheckBox CheckBoxPassoRa;
+	private EditText EditTextPassoDec;
+	private CheckBox CheckBoxPassoDec;
+	private EditText EditTextTimer;
+	private CheckBox CheckBoxTimer;
+
+	private BluetoothDevice mmDevice;
+	private ConnectedThread connectedThread;
+
 	private String bufferCmd = "";
 	private String response[] = { "#", "#", "#", "#", "#", "#", "#", "#", "#" };
-	private String command[] = { ":Gt#", ":Gt#", ":GG#", ":GL#", ":GS#",
-			":GC#", ":Gg#", ":Gt#" };
+	private String command[] = { ":HGT#", ":HGRB#", ":HGRA#", ":HGT#",
+			":HGRB#", ":HGRA#", ":HGT#", ":HGRB#", ":HGRA#" };
 	private boolean podeescrever = true;
 	private String commandAtual = null;
 	private int icom = 0;
@@ -59,6 +69,82 @@ public class HWActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hw);
+		EditTextPassoRa = (EditText) findViewById(R.id.editTextPassoRa);
+		CheckBoxPassoRa = (CheckBox) findViewById(R.id.checkBoxPassoRa);
+		EditTextPassoDec = (EditText) findViewById(R.id.editTextPassoDec);
+		CheckBoxPassoDec = (CheckBox) findViewById(R.id.checkBoxPassoDec);
+		EditTextTimer = (EditText) findViewById(R.id.editTextTimer);
+		CheckBoxTimer = (CheckBox) findViewById(R.id.checkBoxTimer);
+		mmDevice = getIntent().getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+		if (mmDevice != null) {
+			try {
+				connectedThread = new ConnectedThread(mmDevice, mHandler);
+				new Thread(connectedThread).start();
+				MandaComando();
+			} catch (IOException e) {
+				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+				// e.printStackTrace();
+			}
+		}
+		mmDevice = getIntent().getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+		if (mmDevice != null) {
+			try {
+				connectedThread = new ConnectedThread(mmDevice, mHandler);
+				new Thread(connectedThread).start();
+				MandaComando();
+			} catch (IOException e) {
+				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+				// e.printStackTrace();
+			}
+		}
+	}
+
+	private void MandaComando() {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				while (!connectedThread.isFinished()) {
+					if (podeescrever) {
+						try {
+							Thread.sleep(300);
+							connectedThread.write(command[icom].getBytes());
+							commandAtual = command[icom];
+
+							if (icom == 0) {
+								command[0] = "";
+							}
+							if (icom == 1) {
+								command[1] = "";
+							}
+							if (icom == 2) {
+								command[2] = "";
+							}
+							if (icom == 3) {
+								command[3] = "";
+							}
+							if (icom == 4) {
+								command[4] = "";
+							}
+							if (icom == 5) {
+								command[5] = "";
+							}
+							if (icom == 6) {
+								command[6] = "";
+							}
+							if (icom == 7) {
+								command[7] = "";
+							}
+							icom++;
+							if (icom > 7) {
+								icom = 0;
+							}
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		}).start();
 	}
 
 	@Override
@@ -79,67 +165,26 @@ public class HWActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 	private void leResposta(String readMessage) {
 		String strtemp;
 		try {
-			if (":Gt#".equals(commandAtual)) {
-				strtemp = readMessage.subSequence(0, 1).toString();
-				if (strtemp.equalsIgnoreCase("-")) {
-					toggleLestOestLog.setChecked(true);
-				} else {
-					toggleLestOestLog.setChecked(false);
-				}
-				editTextGrauLat.setText(readMessage.subSequence(1, 3));
-				editTextMinLat.setText(readMessage.subSequence(4, 6));
-			}
-			if (":Gg#".equals(commandAtual)) {
-				strtemp = readMessage.subSequence(0, 1).toString();
-				if (strtemp.equalsIgnoreCase("-")) {
-					toggleNorteSulLat.setChecked(true);
-				} else {
-					toggleNorteSulLat.setChecked(false);
-				}
-				editTextGrauLog.setText(readMessage.subSequence(1, 4));
-				editTextMinLog.setText(readMessage.subSequence(5, 7));
-			}
-			if (":GL#".equals(commandAtual)) {;
-				editTextHoraTime.setText(readMessage.subSequence(0, 2));
-				editTextMinTime.setText(readMessage.subSequence(3, 5));
-				editTextSegTime.setText(readMessage.subSequence(6, 8));
-				TextHoraUTC.setText(readMessage.subSequence(0, 2));
-				TextMinUTC.setText(readMessage.subSequence(3, 5));
-				TextSegUTC.setText(readMessage.subSequence(6, 8));
-			}
-			if (":GG#".equals(commandAtual)) {
-				editTextUTCSet.setText(String.valueOf(readMessage.subSequence(
-						1, 3)));
-				strtemp = readMessage.subSequence(0, 1).toString();
-				if (strtemp.equalsIgnoreCase("-")) {
-					toggleUTC.setChecked(true);
-					strtemp = readMessage.subSequence(1, 3).toString();
-					UTC = (Integer.parseInt(strtemp)) * -1;
-				} else {
-					toggleUTC.setChecked(false);
-					strtemp = readMessage.subSequence(1, 3).toString();
-					UTC = Integer.parseInt(strtemp);
-				}
+			if (":HGRA#".equals(commandAtual)) {
 
+				EditTextPassoRa.setText(readMessage.subSequence(1, 8));
+				
 			}
+			if (":HGT#".equals(commandAtual)) {
 
-			if (":GS#".equals(commandAtual)) {
-				TextHoraLST.setText(readMessage.subSequence(0, 2));
-				TextMinLST.setText(readMessage.subSequence(3, 5));
-				TextSegLST.setText(readMessage.subSequence(6, 8));
+				EditTextTimer.setText(readMessage.subSequence(1, 8));
+				
 			}
-			if (":GC#".equals(commandAtual)) {
-				editTextMes.setText(readMessage.subSequence(0, 2));
-				editTextDia.setText(readMessage.subSequence(3, 5));
-				editTextAno.setText(readMessage.subSequence(6, 8));
+			if (":HGRB#".equals(commandAtual)) {
+
+				EditTextPassoDec.setText(readMessage.subSequence(1, 8));
+				
 			}
-			if (commandAtual.contains(":St") || commandAtual.contains(":Sg")
-					|| commandAtual.contains(":SL")
-					|| commandAtual.contains(":SG")
-					|| commandAtual.contains(":SC"))
+			if (commandAtual.contains(":HS") )
 				if (readMessage.equalsIgnoreCase("1")) {
 					Toast.makeText(getApplicationContext(),
 							R.string.atualizado, Toast.LENGTH_LONG).show();
@@ -160,106 +205,53 @@ public class HWActivity extends Activity {
 	public void atualizar(View v) {
 		String strtmp;
 		int i;
-		if (CheckLat.isChecked()) {
-			if (!toggleNorteSulLat.isChecked()) {
-				strtmp = ":St+";
-			} else {
-				strtmp = ":St-";
-			}
-			i = Integer.parseInt(editTextGrauLat.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + "*";
-			i = Integer.parseInt(editTextMinLat.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + "#";
+		if (CheckBoxPassoRa.isChecked()) {
+			//:HSRA0000000#
+			i = Integer.parseInt(EditTextPassoRa.getText().toString());
+			strtmp = ":HSRA";
+			strtmp = strtmp + String.format("%07d", i) + "#";
 			command[6] = strtmp;
 			response[6] = "0123456789";
-			CheckLat.setChecked(false);
+			CheckBoxPassoRa.setChecked(false);
 		} else {
-			command[6] = ":Gt#";
+			command[6] = ":HGRA#";
 			response[6] = "#";
-			command[7] = ":Gt#";
+			command[7] = ":HGRA#";
 			response[7] = "#";
 		}
-		if (CheckLog.isChecked()) {
-			// :SgDDD*MM#
-			if (!toggleLestOestLog.isChecked()) {
-				strtmp = ":Sg+";
-			} else {
-				strtmp = ":Sg-";
-			}
-			i = Integer.parseInt(editTextGrauLog.getText().toString());
-			strtmp = strtmp + String.format("%03d", i) + "*";
-			i = Integer.parseInt(editTextMinLog.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + "#";
-			command[1] = strtmp;
-			response[1] = "0123456789";
-			CheckLog.setChecked(false);
+
+
+		if (CheckBoxPassoDec.isChecked()) {
+			//:HSRA0000000#
+			i = Integer.parseInt(EditTextPassoDec.getText().toString());
+			strtmp = ":HSRB";
+			strtmp = strtmp + String.format("%07d", i) + "#";
+			command[6] = strtmp;
+			response[6] = "0123456789";
+			CheckBoxPassoRa.setChecked(false);
 		} else {
-			command[1] = ":Gg#";
-			response[1] = "#";
-		}
-		/*
-		 * :SLHH:MM:SS# Set the local Time Returns: 0 � Invalid
-		 */
-		if (CheckTime.isChecked()) {
-			// :SLHH:MM:SS#
-			strtmp = ":SL";
-			i = Integer.parseInt(editTextHoraTime.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + ":";
-			i = Integer.parseInt(editTextMinTime.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + ":";
-			i = Integer.parseInt(editTextSegTime.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + "#";
-			command[3] = strtmp;
-			response[3] = "0123456789";
-			CheckTime.setChecked(false);
-		} else {
-			command[3] = ":GL#";
-			response[3] = "#";
-		}
-		/*
-		 * :SGsHH.H# Set the number of hours added to local time to yield UTC
-		 * Returns: 0 � Invalid 1 - Valid
-		 */
-		if (CheckUTC.isChecked()) {
-			// :SGsHH#
-			if (!toggleUTC.isChecked()) {
-				strtmp = ":SG+";
-			} else {
-				strtmp = ":SG-";
-			}
-			i = Integer.parseInt(editTextUTCSet.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + "#";
-			command[2] = strtmp;
-			response[2] = "0123456789";
-			CheckUTC.setChecked(false);
-		} else {
-			command[2] = ":GG#";
+			command[5] = ":HGRB#";
+			response[5] = "#";
+			command[2] = ":HGRB#";
 			response[2] = "#";
 		}
-		command[4] = ":GS#";
-		response[4] = "#";
-		/*
-		 * :SCMM/DD/YY# Change Handbox Date to MM/DD/YY Returns: <D><string> D =
-		 * �0� if the date is invalid. The string is the null string. D = �1�
-		 * for valid dates and the string is �Updating Planetary Data# #� Note:
-		 * For LX200GPS this is the UTC data!
-		 */
-		if (CheckData.isChecked()) {
-			// ::SCMM/DD/YY#
-			strtmp = ":SC";
-			i = Integer.parseInt(editTextMes.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + "/";
-			i = Integer.parseInt(editTextDia.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + "/";
-			i = Integer.parseInt(editTextAno.getText().toString());
-			strtmp = strtmp + String.format("%02d", i) + "#";
-			command[5] = strtmp;
-			response[5] = "0123456789";
-			CheckData.setChecked(false);
+
+		if (CheckBoxTimer.isChecked()) {
+			//:HSRA0000000#
+			i = Integer.parseInt(EditTextTimer.getText().toString());
+			strtmp = ":HST";
+			strtmp = strtmp + String.format("%07d", i) + "#";
+			command[6] = strtmp;
+			response[6] = "0123456789";
+			CheckBoxPassoRa.setChecked(false);
 		} else {
-			command[5] = ":GC#";
-			response[5] = "#";
+			command[1] = ":HGT#";
+			response[1] = "#";
+			command[3] = ":HGT#";
+			response[3] = "#";
 		}
+
+
 		icom = 0;
 	}
 

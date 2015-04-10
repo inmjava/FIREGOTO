@@ -34,7 +34,7 @@
             android:textSize="@dimen/Grande" />
 
         <EditText
-            android:id="@+id/editPassoRa"
+            android:id="@+id/editTextPassoRa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="100"
@@ -71,7 +71,7 @@
         </EditText>
 
         <CheckBox
-            android:id="@+id/CheckBoxPassoDec"
+            android:id="@+id/checkBoxPassoDec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -106,7 +106,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <CheckBox
-            android:id="@+id/CheckBoxTimer"
+            android:id="@+id/checkBoxTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
