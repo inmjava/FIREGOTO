@@ -20,21 +20,18 @@ import android.widget.ToggleButton;
 import android.widget.CheckBox;
 
 public class HWActivity extends Activity {
-
+	private BluetoothDevice mmDevice;
+	private ConnectedThread connectedThread;
 	private EditText EditTextPassoRa;
 	private CheckBox CheckBoxPassoRa;
 	private EditText EditTextPassoDec;
 	private CheckBox CheckBoxPassoDec;
 	private EditText EditTextTimer;
 	private CheckBox CheckBoxTimer;
-
-	private BluetoothDevice mmDevice;
-	private ConnectedThread connectedThread;
-
 	private String bufferCmd = "";
 	private String response[] = { "#", "#", "#", "#", "#", "#", "#", "#", "#" };
 	private String command[] = { ":HGT#", ":HGRB#", ":HGRA#", ":HGT#",
-			":HGRB#", ":HGRA#", ":HGT#", ":HGRB#", ":HGRA#" };
+			":HGRB#", ":HGRA#", "", "" };
 	private boolean podeescrever = true;
 	private String commandAtual = null;
 	private int icom = 0;
@@ -75,17 +72,6 @@ public class HWActivity extends Activity {
 		CheckBoxPassoDec = (CheckBox) findViewById(R.id.checkBoxPassoDec);
 		EditTextTimer = (EditText) findViewById(R.id.editTextTimer);
 		CheckBoxTimer = (CheckBox) findViewById(R.id.checkBoxTimer);
-		mmDevice = getIntent().getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-		if (mmDevice != null) {
-			try {
-				connectedThread = new ConnectedThread(mmDevice, mHandler);
-				new Thread(connectedThread).start();
-				MandaComando();
-			} catch (IOException e) {
-				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-				// e.printStackTrace();
-			}
-		}
 		mmDevice = getIntent().getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 		if (mmDevice != null) {
 			try {
@@ -165,26 +151,40 @@ public class HWActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+			if (mmDevice != null) {
+				Intent result = new Intent();
+				result.putExtra(BluetoothDevice.EXTRA_DEVICE, mmDevice);
+				setResult(RESULT_OK, result);
+				connectedThread.finish();
+				finish();
+			}
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 
 	private void leResposta(String readMessage) {
 		String strtemp;
 		try {
 			if (":HGRA#".equals(commandAtual)) {
 
-				EditTextPassoRa.setText(readMessage.subSequence(1, 8));
-				
+				EditTextPassoRa.setText(readMessage.subSequence(0, 7));
+
 			}
 			if (":HGT#".equals(commandAtual)) {
 
-				EditTextTimer.setText(readMessage.subSequence(1, 8));
-				
+				EditTextTimer.setText(readMessage.subSequence(0, 7));
+
 			}
 			if (":HGRB#".equals(commandAtual)) {
 
-				EditTextPassoDec.setText(readMessage.subSequence(1, 8));
-				
+				EditTextPassoDec.setText(readMessage.subSequence(0, 7));
+
 			}
-			if (commandAtual.contains(":HS") )
+			if (commandAtual.contains(":HS"))
 				if (readMessage.equalsIgnoreCase("1")) {
 					Toast.makeText(getApplicationContext(),
 							R.string.atualizado, Toast.LENGTH_LONG).show();
@@ -202,58 +202,47 @@ public class HWActivity extends Activity {
 
 	}
 
-	public void atualizar(View v) {
+	public void atualizarHW(View v) {
 		String strtmp;
 		int i;
 		if (CheckBoxPassoRa.isChecked()) {
-			//:HSRA0000000#
+			// :HSRA0000000#
 			i = Integer.parseInt(EditTextPassoRa.getText().toString());
 			strtmp = ":HSRA";
 			strtmp = strtmp + String.format("%07d", i) + "#";
-			command[6] = strtmp;
-			response[6] = "0123456789";
+			command[1] = strtmp;
+			response[1] = "0123456789";
 			CheckBoxPassoRa.setChecked(false);
 		} else {
-			command[6] = ":HGRA#";
-			response[6] = "#";
-			command[7] = ":HGRA#";
-			response[7] = "#";
+			command[1] = ":HGRA#";
+			response[1] = "#";
 		}
 
-
 		if (CheckBoxPassoDec.isChecked()) {
-			//:HSRA0000000#
+			// :HSRA0000000#
 			i = Integer.parseInt(EditTextPassoDec.getText().toString());
 			strtmp = ":HSRB";
 			strtmp = strtmp + String.format("%07d", i) + "#";
-			command[6] = strtmp;
-			response[6] = "0123456789";
-			CheckBoxPassoRa.setChecked(false);
+			command[2] = strtmp;
+			response[2] = "0123456789";
+			CheckBoxPassoDec.setChecked(false);
 		} else {
-			command[5] = ":HGRB#";
-			response[5] = "#";
 			command[2] = ":HGRB#";
 			response[2] = "#";
 		}
 
 		if (CheckBoxTimer.isChecked()) {
-			//:HSRA0000000#
+			// :HSRA0000000#
 			i = Integer.parseInt(EditTextTimer.getText().toString());
 			strtmp = ":HST";
 			strtmp = strtmp + String.format("%07d", i) + "#";
-			command[6] = strtmp;
-			response[6] = "0123456789";
-			CheckBoxPassoRa.setChecked(false);
+			command[3] = strtmp;
+			response[3] = "0123456789";
+			CheckBoxTimer.setChecked(false);
 		} else {
-			command[1] = ":HGT#";
-			response[1] = "#";
 			command[3] = ":HGT#";
 			response[3] = "#";
 		}
-
-
 		icom = 0;
 	}
-
-
 }
