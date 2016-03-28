@@ -18,3 +18,6 @@ Aplicativo para controle de telescópio baseado no protocolo LX200 para Android
         http://www.klima-luft.de/steinicke/ngcic/rev2000/Explan.htm        
         https://www.astroleague.org/al/obsclubs/caldwell/cldwlist.html        
         http://www.ceaal.al.org.br/pesquisa/catalogo-bca
+        
+        Email List
+        https://br.groups.yahoo.com/neo/groups/firegoto
